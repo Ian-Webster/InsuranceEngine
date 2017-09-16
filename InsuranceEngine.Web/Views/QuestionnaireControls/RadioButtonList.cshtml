@@ -1,0 +1,52 @@
+@model InsuranceEngine.Web.Models.Questionnaire.QuestionVM
+
+@{
+    //required for server side validation to get server validated questions to have error messages displayed inline
+    bool serverValidationPassed = Html.ViewData.ModelState["Question_" + Model.Question.PageQuestionID.ToString()] == null;
+}
+<div class="form-group" id="QuestionContainer_@Model.Question.PageQuestionID" @Html.Raw(Model.Visibility.IsVisible ? string.Empty : @" style=""display:none"""))>
+    <label for="Question_@Model.Question.PageQuestionID" class="control-label col-sm-4 @(Model.Question.IsRequired ? "required": string.Empty)">@Model.Question.QuestionText</label>
+    <div class="col-sm-6">
+        <div class="form">
+            @foreach (var possibleAnswer in @Model.Question.PossibleAnswers)
+            {
+                if (Model.Question.PossibleAnswers.IndexOf(possibleAnswer) == 0)
+                {
+                    <label class="radio">
+                        <input value="@possibleAnswer.AnswerValue" type="radio" name="Question_@Model.Question.PageQuestionID"
+                               id="Question_@Model.Question.PageQuestionID"
+                               @( Model.GetPossibleAnswerID(Model.Question.QuestionID).GetValueOrDefault(0) == possibleAnswer.QuestionPossibleAnswerID ? "checked" : string.Empty)
+                               @{ Html.RenderPartial("~/Views/QuestionnaireControls/Validation.cshtml", Model.Question.Validators); }
+                               @{ Html.RenderPartial("~/Views/QuestionnaireControls/ConditionalDisplay_TargetQuestions.cshtml", possibleAnswer.DisplayConditions); }
+                               @{ Html.RenderPartial("~/Views/QuestionnaireControls/ConditionalDisplay_DependantQuestions.cshtml", Model.Question.DependantQuestions); }
+                               @Html.Raw(Model.Question.HasDisplayConditions ? @"onchange=""radioButtonChanged(this)""" : string.Empty)>@possibleAnswer.AnswerText
+                        </label>
+                }
+                else
+                {
+                    <label class="radio">
+                        <input value="@possibleAnswer.AnswerValue" type="radio" name="Question_@Model.Question.PageQuestionID"
+                               id="Question_@Model.Question.PageQuestionID"
+                               @( Model.GetPossibleAnswerID(Model.Question.QuestionID).GetValueOrDefault(0) == possibleAnswer.QuestionPossibleAnswerID ? "checked" : string.Empty)
+                               @{ Html.RenderPartial("~/Views/QuestionnaireControls/ConditionalDisplay_TargetQuestions.cshtml", possibleAnswer.DisplayConditions); }
+                               @{ Html.RenderPartial("~/Views/QuestionnaireControls/ConditionalDisplay_DependantQuestions.cshtml", Model.Question.DependantQuestions); }
+                               @Html.Raw(Model.Question.HasDisplayConditions ? @"onchange=""radioButtonChanged(this)""" : string.Empty)>@possibleAnswer.AnswerText
+                        </label>
+                }
+
+            }
+            <span class="field-validation-valid" data-valmsg-for="Question_@Model.Question.PageQuestionID" data-valmsg-replace="true"></span>
+            @{
+                //server side validation
+                if (!serverValidationPassed)
+                {
+                    foreach (var error in Html.ViewData.ModelState["Question_" + @Model.Question.PageQuestionID.ToString()].Errors)
+                    {
+                        <text><span class="field-validation-error">@error.ErrorMessage</span><br /></text>
+                    }
+
+                }
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.QuestionPossibleAnswersVM
+
+@(
+    Html.Kendo().Grid(Model.PossibleAnswers)
+                .Name("PossibleAnswersGrid")
+                .Columns(columns =>
+                {
+                    columns.Bound(p => p.AnswerText).Title("Answer Text").Width("30%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                    columns.Bound(p => p.AnswerValue).Title("Answer Value").Width("30%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                    columns.Bound(p => p.DisplayOrder).Title("Display Order").Width("25%");
+                    columns.Template(p => p.PossibleAnswerID).Title("").Width("15%")
+                        .ClientTemplate(
+                        "<a href='" + @Url.Content("~") + "Admin/Questionnaire/EditPossibleAnswer/" + @Model.SchemeID + "/" + @Model.QuestionID + "/#=PossibleAnswerID#'>Edit</a> | " +
+                        "<a href='" + @Url.Content("~") + "Admin/Questionnaire/DeletePossibleAnswer/" + @Model.SchemeID + "/" + @Model.QuestionID + "/#=PossibleAnswerID#'>Delete</a>"
+                        );
+                })
+                .Pageable()
+                .Sortable()
+                .Scrollable(s => s.Height("50%"))
+                .Filterable(filter =>
+                    {
+                        filter.Mode(GridFilterMode.Row);
+                    }
+                )
+                .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .ServerOperation(true)
+                    .PageSize(10)
+                    .Read(read => read.Action("GetPossibleAnswersByQuestion", "Questionnaire", new { Area = "Admin", schemeId = @Model.SchemeID, questionId = @Model.QuestionID }))
+                )
+        //.Events(events => events.DataBound("GridBound"))
+)

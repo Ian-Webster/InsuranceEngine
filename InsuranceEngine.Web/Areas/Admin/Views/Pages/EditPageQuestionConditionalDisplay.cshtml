@@ -1,0 +1,69 @@
+﻿@model InsuranceEngine.DTO.Questionnaire.PageQuestionConditionalDisplayDTO
+@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+@{
+    ViewBag.Title = "AddPageQuestionConditionalDisplay";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.PageQuestionConditionalDisplayID)
+    @Html.HiddenFor(model => model.TargetPageQuestionID)
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit Page Question Conditional Display</h3>
+        </div>
+        <div class="panel-body">
+
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <strong>Please correct the following</strong>;
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SourcePageQuestionID, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.DropDownListFor(model => model.SourcePageQuestionID, ViewBag.SourceQuestions as IEnumerable<SelectListItem>, "select one", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SourcePageQuestionID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.TriggerQuestionPossibleAnswerID, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.DropDownListFor(model => model.TriggerQuestionPossibleAnswerID, ViewBag.TriggerAnswers as IEnumerable<SelectListItem>, "select one", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TriggerQuestionPossibleAnswerID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Hide, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Hide, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Hide)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.ActionLink("Cancel", "ViewPageQuestion", new { selectedTab = PageQuestionTabs.DisplayConditions }, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

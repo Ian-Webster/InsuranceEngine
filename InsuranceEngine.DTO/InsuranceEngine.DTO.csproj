@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A646F983-9741-4D1B-9826-BAFB618B1135}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InsuranceEngine.DTO</RootNamespace>
+    <AssemblyName>InsuranceEngine.DTO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttributeNames\Questionnaire\SchemeTreeNodeAttributes.cs" />
+    <Compile Include="AttributeNames\RouteAttributeNames.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Questionnaire\Admin\ManagePageQuestionStats.cs" />
+    <Compile Include="Questionnaire\Admin\ManagePageStatsDTO.cs" />
+    <Compile Include="Questionnaire\Admin\ManageQuestionStatsDTO.cs" />
+    <Compile Include="Questionnaire\Admin\ManageSchemeStatsDTO.cs" />
+    <Compile Include="Questionnaire\Admin\PageForGridDTO.cs" />
+    <Compile Include="Questionnaire\Admin\PageQuestionConditionalDisplayForGridDTO.cs" />
+    <Compile Include="Questionnaire\Admin\PageQuestionForAdminDisplayDTO.cs" />
+    <Compile Include="Questionnaire\Admin\PageQuestionForGridDTO.cs" />
+    <Compile Include="Questionnaire\Admin\PossibleAnswerForGridDTO.cs" />
+    <Compile Include="Questionnaire\Admin\QuestionForAdminDisplayDTO.cs" />
+    <Compile Include="Questionnaire\Admin\QuestionForGridDTO.cs" />
+    <Compile Include="Questionnaire\Admin\RenderedPageForGridDTO.cs" />
+    <Compile Include="Questionnaire\Admin\SchemeForGridDTO.cs" />
+    <Compile Include="Questionnaire\Admin\TreeNodeDTO.cs" />
+    <Compile Include="Questionnaire\Admin\TreeNodeStateDTO.cs" />
+    <Compile Include="Questionnaire\Admin\PageQuestionValidationForGridDTO.cs" />
+    <Compile Include="Questionnaire\AnswerDTO.cs" />
+    <Compile Include="Questionnaire\PageDTO.cs" />
+    <Compile Include="Questionnaire\PageQuestionConditionalDisplayForDisplayDTOy.cs" />
+    <Compile Include="Questionnaire\PageQuestionConditionalDisplayDTO.cs" />
+    <Compile Include="Questionnaire\PageQuestionDTO.cs" />
+    <Compile Include="Questionnaire\PageQuestionValidationDTO.cs" />
+    <Compile Include="Questionnaire\PageQuestionVisibilityDTO.cs" />
+    <Compile Include="Questionnaire\PageTemplateDTO.cs" />
+    <Compile Include="Questionnaire\QuestionDTO.cs" />
+    <Compile Include="Questionnaire\PageQuestionForDisplayDTO.cs" />
+    <Compile Include="Questionnaire\QuestionnaireEnums.cs" />
+    <Compile Include="Questionnaire\QuestionPossibleAnswerForDisplayDTO.cs" />
+    <Compile Include="Questionnaire\QuestionPossibleAnswerDTO.cs" />
+    <Compile Include="Questionnaire\QuestionTemplateDTO.cs" />
+    <Compile Include="Questionnaire\QuestionTypeDTO.cs" />
+    <Compile Include="Questionnaire\QuoteDTO.cs" />
+    <Compile Include="Questionnaire\QuoteListItemDTO.cs" />
+    <Compile Include="Questionnaire\QuoteQuestionAnswerDTO.cs" />
+    <Compile Include="Questionnaire\RenderedPageDTO.cs" />
+    <Compile Include="Questionnaire\RenderedPageForDisplayDTO.cs" />
+    <Compile Include="Questionnaire\RenderedPageForRenderingDTO.cs" />
+    <Compile Include="Questionnaire\Admin\SchemeDTO.cs" />
+    <Compile Include="Questionnaire\ValidationErrorDTO.cs" />
+    <Compile Include="Utility\Enums\AdminUIEnums.cs" />
+    <Compile Include="Utility\GridData\FilterRequestDTO.cs" />
+    <Compile Include="Utility\GridData\GridDataHelper.cs" />
+    <Compile Include="Utility\GridData\GridDataRequestDTO.cs" />
+    <Compile Include="Utility\GridData\GridDataResponseDTO.cs" />
+    <Compile Include="Utility\GridData\GridEnums.cs" />
+    <Compile Include="Utility\GridData\SortRequestDTO.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

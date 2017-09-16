@@ -1,0 +1,27 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.SchemeRenderedPagesVM
+
+@(
+ Html.Kendo().Grid(Model.Pages)
+                            .Name("RenderedPagesGrid")
+                            .Columns(columns =>
+                            {
+                                columns.Bound(p => p.Name).Title("Name").Width("30%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.Title).Title("Title").Width("30%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.LastRenderDate).Title("Last Render Date").Width("30%").Format("{0:dd/MM/yyyy HH:mm:ss}").Filterable(ftb => ftb.Enabled(false));                                
+                            })
+                            .Pageable()
+                            .Sortable()
+                            .Scrollable(s => s.Height("50%"))
+                            .Filterable(filter =>
+                                {
+                                    filter.Mode(GridFilterMode.Row);
+                                }
+                            )
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .ServerOperation(true)
+                                .PageSize(10)
+                                .Read(read => read.Action("GetRenderedPagesByScheme", "Pages", new { Area = "Admin", schemeId = @Model.SchemeID }))
+                            )
+        //.Events(events => events.DataBound("GridBound"))
+)

@@ -1,0 +1,92 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.SchemeVM
+@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+@{
+    ViewBag.Title = "Scheme";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+<ul class="nav nav-pills">
+    <li @Html.Raw(Model.SelectedTab == SchemePageTabs.SchemeDetails ? @"class=""active""" : string.Empty) ><a href="#schemeDetails" data-toggle="tab">Scheme Details <span class="badge"></span></a></li>
+    <li @Html.Raw(Model.SelectedTab == SchemePageTabs.Pages ? @"class=""active""" : string.Empty)><a href="#pages" data-toggle="tab">Pages <span class="badge">@Model.Stats.PageCount</span></a></li>
+    <li @Html.Raw(Model.SelectedTab == SchemePageTabs.Questions ? @"class=""active""" : string.Empty)><a href="#questions" data-toggle="tab">Questions <span class="badge">@Model.Stats.QuestionCount</span></a></li>
+    <li @Html.Raw(Model.SelectedTab == SchemePageTabs.RenderedPages ? @"class=""active""" : string.Empty)><a href="#renderedPages" data-toggle="tab">Rendered Pages <span class="badge">@Model.Stats.RenderedPageCount</span></a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade @(Model.SelectedTab == SchemePageTabs.SchemeDetails ? "active in" : string.Empty)" id="schemeDetails">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Scheme Details - @Model.Scheme.Name</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Scheme.Name, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.Scheme.Name</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @Html.LabelFor(model => model.Scheme.Code, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.Scheme.Code</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            &nbsp;
+                        </div>
+                        <div class="col-sm-1">
+                            @Html.ActionLink("Edit Scheme", "EditScheme", new { schemeId = @Model.Scheme.SchemeID }, new { @class = "btn btn-primary" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade @(Model.SelectedTab == SchemePageTabs.Pages ? "active in" : string.Empty)" id="pages">
+        @{Html.RenderAction("ListPagesByScheme", "Pages", new { schemeId = @Model.Scheme.SchemeID });}
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    &nbsp;
+                </div>
+                <div class="col-sm-1">
+                    @Html.ActionLink("Add Page", "AddPage", "Pages", new { schemeId = @Model.Scheme.SchemeID }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade @(Model.SelectedTab == SchemePageTabs.Questions ? "active in" : string.Empty)" id="questions">
+        @{Html.RenderAction("ListQuestionsByScheme", "Questionnaire", new { schemeId = @Model.Scheme.SchemeID });}
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    &nbsp;
+                </div>
+                <div class="col-sm-1">
+                    @Html.ActionLink("Add Question", "AddQuestion", "Questionnaire", new { schemeId = @Model.Scheme.SchemeID }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade @(Model.SelectedTab == SchemePageTabs.RenderedPages ? "active in" : string.Empty)" id="renderedPages">
+        @{Html.RenderAction("ListRenderedPagesByScheme", "Pages", new { schemeId = @Model.Scheme.SchemeID });}
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    &nbsp;
+                </div>
+                <div class="col-sm-1">
+                    @Html.ActionLink("Render All Pages", "RenderPages", "Pages", new { schemeId = @Model.Scheme.SchemeID }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

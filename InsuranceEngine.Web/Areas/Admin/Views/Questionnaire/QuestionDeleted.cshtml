@@ -1,0 +1,25 @@
+﻿@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+@{
+    ViewBag.Title = "QuestionDeleted";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenuNoTreeView.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Question Deleted</h3>
+    </div>
+    <div class="panel-body">
+        <p>The question has been deleted. Click "ok" to return to the question list.</p>
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    &nbsp;
+                </div>
+                <div class="col-sm-1">
+                    @Html.ActionLink("Ok", "Scheme", "Schemes", new { selectedTab = SchemePageTabs.Questions }, new { @class = "btn btn-success" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

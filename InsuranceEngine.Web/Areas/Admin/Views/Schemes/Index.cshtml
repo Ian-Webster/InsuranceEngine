@@ -1,0 +1,91 @@
+﻿@model IEnumerable<InsuranceEngine.DTO.Questionnaire.Admin.SchemeForGridDTO>
+
+@{
+    ViewBag.Title = "Schemes";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+<div class="row">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Schemes</h3>
+        </div>
+        <div class="panel-body">
+
+            @(
+                 Html.Kendo().Grid(Model)
+                            .Name("CombinedSearchGrid")
+                            .Columns(columns =>
+                            {
+                                columns.Bound(p => p.Name).Title("Name").Width("40%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.Code).Title("Code").Width("20%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Template(p => p.SchemeID).Title("").Width("40%")
+                                    .ClientTemplate(
+                                    "<a href='"+@Url.Content("~")+"Admin/Schemes/Scheme/#=SchemeID#'>View Scheme</a> | "+
+                                    "<a href='" + @Url.Content("~") + "Admin/Schemes/DeleteScheme/#=SchemeID#'>Delete</a>"
+                                    );
+                            })
+                            .Pageable()
+                            .Sortable()
+                            .Scrollable(s => s.Height("50%"))
+                            .Filterable(filter =>
+                                {
+                                    filter.Mode(GridFilterMode.Row);
+                                }
+                            )
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .ServerOperation(true)
+                                .PageSize(10)
+                                .Read(read => read.Action("ListSchemes", "Schemes", new { Area = "Admin" }))
+                            )
+                            //.Events(events => events.DataBound("GridBound"))
+            )
+
+            @*<table class="table table-striped table-hover">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Code)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Code)
+                        </td>
+                        <td>
+                            @Html.ActionLink("View Pages", "Index", "Pages", new { schemeId = item.SchemeID }, null) |
+                            @Html.ActionLink("View Questions", "ListQuestions", "Questionnaire", new { schemeId = item.SchemeID }, null) |
+                            @Html.ActionLink("Edit Scheme", "EditScheme", new { schemeId = item.SchemeID }, null) |
+                            @Html.ActionLink("View Scheme", "Scheme", new { schemeId = item.SchemeID }, null)
+                        </td>
+                    </tr>
+                }
+
+            </table>*@
+
+            <br />
+
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.ActionLink("Add New Scheme", "AddScheme", null, new { @class = "btn btn-primary" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

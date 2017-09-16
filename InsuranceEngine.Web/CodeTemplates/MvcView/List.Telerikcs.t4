@@ -1,0 +1,118 @@
+﻿<#@ template language="C#" HostSpecific="True" #>
+<#@ output extension=".cshtml" #>
+<#@ include file="Imports.include.t4" #>
+@model IEnumerable<#= "<" + ViewDataTypeName + ">" #>
+<#
+// The following chained if-statement outputs the file header code and markup for a partial view, a view using a layout page, or a regular view.
+if(IsPartialView) {
+#>
+
+<#
+} else if(IsLayoutPageSelected) {
+#>
+
+@{
+    ViewBag.Title = "<#= ViewName#>";
+<#
+if (!String.IsNullOrEmpty(LayoutPageFile)) {
+#>
+    Layout = "<#= LayoutPageFile#>";
+<#
+}
+#>
+}
+
+<#
+} else {
+#>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title><#= ViewName #></title>
+</head>
+<body>
+<#
+    PushIndent("    ");
+}
+#>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title"><#= ViewName #></h3>
+    </div>
+    <div class="panel-body">
+
+        @(
+         Html.Kendo().Grid(Model)
+            .Name("<# =ViewDataTypeName>Grid")
+            .Columns(columns =>
+            {
+
+				<#
+				IEnumerable<PropertyMetadata> properties = ModelMetadata.Properties;
+				foreach (PropertyMetadata property in properties) {
+					if (property.Scaffold && !property.IsPrimaryKey && !property.IsForeignKey) {
+				#>
+				<#
+						// This is a temporary work around until core scaffolding provides support for independent associations.
+						if (property.IsAssociation && GetRelatedModelMetadata(property) == null) {
+							continue;
+						}
+				#>
+							columns.Bound(p => p.<#= GetValueExpression(property) #>);
+				<#
+					}
+				}
+				#>
+
+                
+
+                columns.Template(p => p.NoteID).Title("")
+                    .ClientTemplate(
+                    "<a href='View/#=ID#'>View</a> | "+
+                    "<a href='Edit/#=ID#'>Edit</a>"
+                    );
+            })
+            .Pageable()
+            .Sortable()
+            .Filterable()
+            .DataSource(dataSource => dataSource
+                .Ajax()
+                .ServerOperation(true)
+                .PageSize(10)
+                .Read(read => read.Action("List", "Controler"))
+            )
+        )
+
+        <br />
+
+        <div class="form-group">
+            <div class="col-sm-5">
+                &nbsp;
+            </div>
+            <div class="col-sm-7">
+                @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+
+    </div>
+</div>
+<#
+// The following code closes the tag used in the case of a view using a layout page and the body and html tags in the case of a regular view page
+#>
+<#
+if(!IsPartialView && !IsLayoutPageSelected) {
+    ClearIndent();
+#>
+</body>
+</html>
+<#
+}
+#>
+<#@ include file="ModelMetadataFunctions.cs.include.t4" #>

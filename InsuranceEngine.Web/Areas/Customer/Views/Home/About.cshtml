@@ -1,0 +1,82 @@
+﻿
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Areas/Customer/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+<p><strong>InsuranceEngine Phase 1</strong></p>
+<ul>
+    <li>Scheme (no branding)</li>
+    <li>Pages (no templating)</li>
+    <li>Next / back navigation (no conditional navigation)</li>
+    <li>Questions (no grouping)</li>
+    <li>Simple validation (is required only)</li>
+    <li>Question types;
+        <ul>
+            <li>Text box</li>
+            <li>Drop down (simple flat list driven by database)</li>
+            <li>Radio button list</li>
+        </ul>
+    </li>
+    <li>Quotes grid with ability to open an existing set of answers</li>
+    <li>Administration of above elements</li>
+</ul>
+<p><strong>InsuranceEngine Phase 2</strong></p>
+<ul>
+    <li>
+        New question types;
+        <ul>
+            <li>Date picker</li>
+            <li>Small, medium and large text boxes (existing text box from phase 1 will become medium, large text box will be multiline)</li>
+        </ul>
+    </li>
+    <li>
+        Additional validation types;
+        <ul>
+            <li>Regex</li>
+            <li>Numeric</li>
+            <li>Date (valid date format, more than, less than, compare to fix date + today) - offset for days and offset for years</li>
+        </ul>
+    </li>
+    <li>
+        Implement server validation
+    </li>
+    <li>
+        Conditional display of questions;
+        <ul>
+            <li>Trigger will be drop down and radio button questions</li>
+            <li>Trigger will be related to an answer</li>
+            <li>Hide or show is for a question (can have multiple, e.g. show question X, Y & Z)</li>
+            <li>On first load of page need to make sure existing answers are honoured for visibility</li>
+            <li>Default state for conditionaly visible questions (e.g. on new quote with no answers question X should be invisible to start).</li>
+            <li>Validation will need to honour visibility</li>
+            <li>If a question is invisible when saved there shouldn't be an answer saved for it (not even a blank one)</li>
+            <li>When toggling visibility of a question the answer should be retained (up and till submit of page)</li>
+            <li>Cross page visibility will be including in a later phase</li>
+        </ul>
+    </li>
+</ul>
+<p><strong>InsuranceEngine Phase 3</strong></p>
+<ul>
+    <li>Updates to Admin System;</li>
+    <ul>
+        <li>
+            Replace grids with Kendo grids (allowing for fitlering, sorting and paging)
+        </li>
+        <li>
+            Implement a treeview to allow hierarchical display of a scheme components, making it easier to navigate around the various management functions within a scheme.
+        </li>
+        <li>
+            Allow the deletion of various elements;
+            <ul>
+                <li>Scheme as a whole</li>
+                <li>Page</li>
+                <li>Question</li>
+                <li>Page Question</li>
+                <li>Possible Answer</li>
+                <li>Validation</li>
+                <li></li>
+            </ul>
+        </li>
+    </ul>
+</ul>

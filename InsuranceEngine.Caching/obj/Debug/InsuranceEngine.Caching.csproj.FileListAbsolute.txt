@@ -1,0 +1,4 @@
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Caching\bin\Debug\InsuranceEngine.Caching.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Caching\bin\Debug\InsuranceEngine.Caching.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Caching\obj\Debug\InsuranceEngine.Caching.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Caching\obj\Debug\InsuranceEngine.Caching.pdb

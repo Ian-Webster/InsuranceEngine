@@ -1,0 +1,11 @@
+﻿@model InsuranceEngine.Web.Models.Questionnaire.PageVM
+
+@{
+    ViewBag.Title = @Model.Page.SchemeName;
+    Layout = "~/Areas/Customer/Views/Shared/_LayoutWithMenu.cshtml";
+}
+@{Html.RenderPartial(@Model.Page.DynamicViewsRootFolder + @Model.Page.SchemeCode + "/" + @Model.Page.PageName + ".cshtml", @Model);}
+
+@section scripts{
+    @Scripts.Render("~/bundles/questionnaire")
+}

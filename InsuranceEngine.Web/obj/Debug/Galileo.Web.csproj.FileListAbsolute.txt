@@ -1,0 +1,132 @@
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\obj\Debug\Galileo.Web.csprojResolveAssemblyReference.cache
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Web.dll.config
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Web.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Web.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Antlr3.Runtime.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Elmah.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\EntityFramework.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\EntityFramework.SqlServer.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Business.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.DTO.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Microsoft.Web.Infrastructure.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Newtonsoft.Json.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\RouteDebugger.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Helpers.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Mvc.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Optimization.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Razor.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.Deployment.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.Razor.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\WebGrease.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Data.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Fusion.Caching.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\AutoMapper.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Linq.Dynamic.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Business.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.DTO.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\EntityFramework.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\EntityFramework.SqlServer.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Helpers.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Mvc.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Razor.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.Deployment.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.Razor.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Optimization.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Newtonsoft.Json.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Antlr3.Runtime.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Data.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Fusion.Caching.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\AutoMapper.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\obj\Debug\Galileo.Web.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\obj\Debug\Galileo.Web.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\AutoMapper.Net4.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Web.dll.config
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Web.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Web.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Antlr3.Runtime.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Elmah.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\EntityFramework.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\EntityFramework.SqlServer.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Business.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.DTO.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Newtonsoft.Json.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\RouteDebugger.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Helpers.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Mvc.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Optimization.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Razor.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.Deployment.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.Razor.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\WebGrease.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Fusion.Caching.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Data.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\AutoMapper.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Linq.Dynamic.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Business.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.DTO.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\EntityFramework.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\EntityFramework.SqlServer.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Helpers.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Mvc.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Razor.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.Deployment.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.WebPages.Razor.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\System.Web.Optimization.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Newtonsoft.Json.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Antlr3.Runtime.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Fusion.Caching.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Data.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\Galileo.Data.dll.config
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\bin\AutoMapper.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\obj\Debug\Galileo.Web.csprojResolveAssemblyReference.cache
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\obj\Debug\Galileo.Web.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.Web\obj\Debug\Galileo.Web.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Galileo.Web.dll.config
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Galileo.Web.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Galileo.Web.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Antlr3.Runtime.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Elmah.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\EntityFramework.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\EntityFramework.SqlServer.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Microsoft.Web.Infrastructure.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Newtonsoft.Json.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\RouteDebugger.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.Helpers.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.Mvc.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.Optimization.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.Razor.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.WebPages.Deployment.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.WebPages.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.WebPages.Razor.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\WebGrease.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\AutoMapper.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Linq.Dynamic.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\EntityFramework.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\EntityFramework.SqlServer.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.Helpers.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.Mvc.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.Razor.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.WebPages.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.WebPages.Deployment.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.WebPages.Razor.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\System.Web.Optimization.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Newtonsoft.Json.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\Antlr3.Runtime.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\AutoMapper.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\obj\Debug\Galileo.Web.csprojResolveAssemblyReference.cache
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\obj\Debug\Galileo.Web.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\obj\Debug\Galileo.Web.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.Business.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.Caching.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.Business.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.Caching.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.Data.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.Data.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.Data.dll.config
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.DTO.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.Web\bin\InsuranceEngine.DTO.pdb

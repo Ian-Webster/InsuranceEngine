@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InsuranceEngineDataEFQuestionnaireStoreContainer" CdmEntityContainer="QuestionnaireEntities">
+    <EntitySetMapping Name="Questions">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Question">
+        <MappingFragment StoreEntitySet="Question">
+          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+          <ScalarProperty Name="Scheme_ID" ColumnName="Scheme_ID" />
+          <ScalarProperty Name="Question_Template_ID" ColumnName="Question_Template_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question_Template">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Question_Template">
+        <MappingFragment StoreEntitySet="Question_Template">
+          <ScalarProperty Name="Question_Type_ID" ColumnName="Question_Type_ID" />
+          <ScalarProperty Name="LastRenderDate" ColumnName="LastRenderDate" />
+          <ScalarProperty Name="Question_Template_ID" ColumnName="Question_Template_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Template" ColumnName="Template" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quotes">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Quote">
+        <MappingFragment StoreEntitySet="Quote">
+          <ScalarProperty Name="Quote_ID" ColumnName="Quote_ID" />
+          <ScalarProperty Name="Scheme_ID" ColumnName="Scheme_ID" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="QuoteDate" ColumnName="QuoteDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Quote_Question_Answer">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Quote_Question_Answer">
+        <MappingFragment StoreEntitySet="Quote_Question_Answer">
+          <ScalarProperty Name="Quote_Question_Answer_ID" ColumnName="Quote_Question_Answer_ID" />
+          <ScalarProperty Name="Quote_ID" ColumnName="Quote_ID" />
+          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+          <ScalarProperty Name="Question_Possible_Answer_ID" ColumnName="Question_Possible_Answer_ID" />
+          <ScalarProperty Name="Answer" ColumnName="Answer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schemes">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Scheme">
+        <MappingFragment StoreEntitySet="Scheme">
+          <ScalarProperty Name="Scheme_ID" ColumnName="Scheme_ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rendered_Page">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Rendered_Page">
+        <MappingFragment StoreEntitySet="Rendered_Page">
+          <ScalarProperty Name="LastRenderDate" ColumnName="LastRenderDate" />
+          <ScalarProperty Name="PageContent" ColumnName="PageContent" />
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Rendered_Page_ID" ColumnName="Rendered_Page_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pages">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Page">
+        <MappingFragment StoreEntitySet="Page">
+          <ScalarProperty Name="Next_Page_ID" ColumnName="Next_Page_ID" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Scheme_ID" ColumnName="Scheme_ID" />
+          <ScalarProperty Name="Page_Template_ID" ColumnName="Page_Template_ID" />
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Page_Template">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Page_Template">
+        <MappingFragment StoreEntitySet="Page_Template">
+          <ScalarProperty Name="TemplateContent" ColumnName="TemplateContent" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Page_Template_ID" ColumnName="Page_Template_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question_Possible_Answer">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Question_Possible_Answer">
+        <MappingFragment StoreEntitySet="Question_Possible_Answer">
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="AnswerValue" ColumnName="AnswerValue" />
+          <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+          <ScalarProperty Name="Question_Possible_Answer_ID" ColumnName="Question_Possible_Answer_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Page_Question">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Page_Question">
+        <MappingFragment StoreEntitySet="Page_Question">
+          <ScalarProperty Name="DefaultShow" ColumnName="DefaultShow" />
+          <ScalarProperty Name="QuestionName" ColumnName="QuestionName" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="Question_ID" ColumnName="Question_ID" />
+          <ScalarProperty Name="Page_ID" ColumnName="Page_ID" />
+          <ScalarProperty Name="Page_Question_ID" ColumnName="Page_Question_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Page_Question_Conditional_Display">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Page_Question_Conditional_Display">
+        <MappingFragment StoreEntitySet="Page_Question_Conditional_Display">
+          <ScalarProperty Name="Hide" ColumnName="Hide" />
+          <ScalarProperty Name="Trigger_Question_Possible_Answer_ID" ColumnName="Trigger_Question_Possible_Answer_ID" />
+          <ScalarProperty Name="Target_Page_Question_ID" ColumnName="Target_Page_Question_ID" />
+          <ScalarProperty Name="Source_Page_Question_ID" ColumnName="Source_Page_Question_ID" />
+          <ScalarProperty Name="Page_Question_Conditional_Display_ID" ColumnName="Page_Question_Conditional_Display_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Validation_Type">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Validation_Type">
+        <MappingFragment StoreEntitySet="Validation_Type">
+          <ScalarProperty Name="DataType" ColumnName="DataType" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Validation_Type_ID" ColumnName="Validation_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Page_Question_Validation">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Page_Question_Validation">
+        <MappingFragment StoreEntitySet="Page_Question_Validation">
+          <ScalarProperty Name="ValidationExpression" ColumnName="ValidationExpression" />
+          <ScalarProperty Name="ErrorMessage" ColumnName="ErrorMessage" />
+          <ScalarProperty Name="Validation_Type_ID" ColumnName="Validation_Type_ID" />
+          <ScalarProperty Name="Page_Question_ID" ColumnName="Page_Question_ID" />
+          <ScalarProperty Name="Page_Question_Validation_ID" ColumnName="Page_Question_Validation_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Question_Type">
+      <EntityTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Question_Type">
+        <MappingFragment StoreEntitySet="Question_Type">
+          <ScalarProperty Name="HasPossibleAnswers" ColumnName="HasPossibleAnswers" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Question_Type_ID" ColumnName="Question_Type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Pages_ListPagesForGrid" FunctionName="InsuranceEngine.Data.EF.Questionnaire.Store.Pages_ListPagesForGrid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Pages_ListPagesForGrid_Result">
+          <ScalarProperty Name="PageID" ColumnName="PageID" />
+          <ScalarProperty Name="PageTemplate" ColumnName="PageTemplate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="NextPageName" ColumnName="NextPageName" />
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Questions_ListQuestionsForGrid" FunctionName="InsuranceEngine.Data.EF.Questionnaire.Store.Questions_ListQuestionsForGrid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Questions_ListQuestionsForGrid_Result">
+          <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+          <ScalarProperty Name="QuestionTemplate" ColumnName="QuestionTemplate" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Code" ColumnName="Code" />
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RenderedPages_ListRenderedPagesForGrid" FunctionName="InsuranceEngine.Data.EF.Questionnaire.Store.RenderedPages_ListRenderedPagesForGrid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.RenderedPages_ListRenderedPagesForGrid_Result">
+          <ScalarProperty Name="RenderedPageID" ColumnName="RenderedPageID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="LastRenderDate" ColumnName="LastRenderDate" />
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PageQuestions_ListPageQuestionsForGrid" FunctionName="InsuranceEngine.Data.EF.Questionnaire.Store.PageQuestions_ListPageQuestionsForGrid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.PageQuestions_ListPageQuestionsForGrid_Result">
+          <ScalarProperty Name="PageQuestionID" ColumnName="PageQuestionID" />
+          <ScalarProperty Name="Question" ColumnName="Question" />
+          <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+          <ScalarProperty Name="QuestionName" ColumnName="QuestionName" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="DefaultShow" ColumnName="DefaultShow" />
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PageQuestions_ListPageQuestionValidationForGrid" FunctionName="InsuranceEngine.Data.EF.Questionnaire.Store.PageQuestions_ListPageQuestionValidationForGrid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.PageQuestions_ListPageQuestionValidationForGrid_Result">
+          <ScalarProperty Name="PageQuestionValidationID" ColumnName="PageQuestionValidationID" />
+          <ScalarProperty Name="ValidationMessage" ColumnName="ValidationMessage" />
+          <ScalarProperty Name="ValidationType" ColumnName="ValidationType" />
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="PageQuestions_ListPageQuestionDisplayConditionsForGrid" FunctionName="InsuranceEngine.Data.EF.Questionnaire.Store.PageQuestions_ListPageQuestionDisplayConditionsForGrid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.PageQuestions_ListPageQuestionDisplayConditionsForGrid_Result">
+          <ScalarProperty Name="PageQuestionConditionalDisplayID" ColumnName="PageQuestionConditionalDisplayID" />
+          <ScalarProperty Name="SourcePageQuestionName" ColumnName="SourcePageQuestionName" />
+          <ScalarProperty Name="TargetPageQuestionName" ColumnName="TargetPageQuestionName" />
+          <ScalarProperty Name="TriggerAnswer" ColumnName="TriggerAnswer" />
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Questions_ListPossibleAnswerForGrid" FunctionName="InsuranceEngine.Data.EF.Questionnaire.Store.Questions_ListPossibleAnswerForGrid">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="InsuranceEngine.Data.EF.Questionnaire.Questions_ListPossibleAnswerForGrid_Result">
+          <ScalarProperty Name="PossibleAnswerID" ColumnName="PossibleAnswerID" />
+          <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+          <ScalarProperty Name="AnswerValue" ColumnName="AnswerValue" />
+          <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
+          <ScalarProperty Name="TotalRows" ColumnName="TotalRows" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

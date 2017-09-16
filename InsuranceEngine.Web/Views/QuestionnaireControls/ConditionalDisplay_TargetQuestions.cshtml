@@ -1,0 +1,20 @@
+﻿@model List<InsuranceEngine.DTO.Questionnaire.PageQuestionConditionalDisplayForDisplayDTO>
+
+@{
+    if (Model != null && Model.Count > 0)
+    {
+        @Html.Raw(@" data-condisplay-targetquestions=""")
+        foreach (var conditionalDisplayDTO in Model)
+        {
+            if (Model.IndexOf(conditionalDisplayDTO) == 0)
+            {
+                @Html.Raw(conditionalDisplayDTO.TargetPageQuestionID + ":" + (conditionalDisplayDTO.Hide ? "hide" : "show"));
+            }
+            else
+            {
+                @Html.Raw("|" + conditionalDisplayDTO.TargetPageQuestionID + ":" + (conditionalDisplayDTO.Hide ? "hide" : "show"));
+            }
+        }
+        @Html.Raw(@"""");
+    }
+}

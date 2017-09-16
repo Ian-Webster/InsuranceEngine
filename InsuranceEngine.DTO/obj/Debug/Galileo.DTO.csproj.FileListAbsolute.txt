@@ -1,0 +1,54 @@
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\Galileo.DTO.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\Galileo.DTO.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Helpers.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Mvc.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Razor.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Helpers.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Mvc.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Razor.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\obj\Debug\Galileo.DTO.csprojResolveAssemblyReference.cache
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\obj\Debug\Galileo.DTO.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Galileo.DTO\obj\Debug\Galileo.DTO.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\Galileo.DTO.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\Galileo.DTO.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Helpers.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Mvc.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Razor.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Helpers.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Mvc.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.Razor.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\obj\Debug\Galileo.DTO.csprojResolveAssemblyReference.cache
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\obj\Debug\Galileo.DTO.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Galileo.DTO\obj\Debug\Galileo.DTO.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\Galileo.DTO.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\Galileo.DTO.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\Microsoft.Web.Infrastructure.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.Helpers.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.Mvc.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.Razor.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.WebPages.Deployment.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.WebPages.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.WebPages.Razor.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.Helpers.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.Mvc.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.Razor.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.WebPages.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.WebPages.Deployment.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\bin\Debug\System.Web.WebPages.Razor.xml
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\obj\Debug\Galileo.DTO.csprojResolveAssemblyReference.cache
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\obj\Debug\Galileo.DTO.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\Galileo.DTO\obj\Debug\Galileo.DTO.pdb

@@ -1,0 +1,70 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.QuestionVM
+@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+@{
+    ViewBag.Title = "ViewQuestion";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenu.cshtml";
+}
+<ul class="nav nav-pills">
+    <li @Html.Raw(Model.SelectedTab == QuestionTabs.QuestionDetails ? @"class=""active""" : string.Empty)><a href="#questionDetails" data-toggle="tab">Question Details <span class="badge"></span></a></li>
+    @if (Model.Question.HasPossibleAnswers) { 
+       <text><li @Html.Raw(Model.SelectedTab == QuestionTabs.PossibleAnswers ? @"class=""active""" : string.Empty)><a href="#possibleAnswers" data-toggle="tab">Possible Answers<span class="badge">@Model.Stats.PossibleAnswersCount</span></a></li></text>
+    }
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade @(Model.SelectedTab == QuestionTabs.QuestionDetails ? "active in" : string.Empty)" id="questionDetails">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Question Details - @Model.Question.Name</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="row">
+                        @Html.LabelFor(model => model.Question.Code, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.Question.Code</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @Html.LabelFor(model => model.Question.Name, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.Question.Name</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @Html.LabelFor(model => model.Question.QuestionTemplate, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.Question.QuestionTemplate</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            &nbsp;
+                        </div>
+                        <div class="col-sm-1">
+                            @Html.ActionLink("Edit Question", "EditQuestion", null, new { @class = "btn btn-primary" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade @(Model.SelectedTab == QuestionTabs.PossibleAnswers ? "active in" : string.Empty)" id="possibleAnswers">
+        @{Html.RenderAction("ListPossibleAnswersByQuestion", "Questionnaire", new { schemeId = @Model.SchemeID, questionId = @Model.QuestionID });}
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    &nbsp;
+                </div>
+                <div class="col-sm-1">
+                    @Html.ActionLink("Add Possible Answer", "AddPossibleAnswer", new { schemeId = @Model.SchemeID, questionId = @Model.QuestionID }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

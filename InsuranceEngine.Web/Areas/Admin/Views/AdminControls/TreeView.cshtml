@@ -1,0 +1,259 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.TreeViewDataVM
+@using InsuranceEngine.DTO.AttributeNames.Questionnaire
+@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+@using InsuranceEngine.DTO.AttributeNames
+<div id="jsTree">
+
+</div>
+
+<script type="text/javascript">
+
+    //enum used to determine node types, clone found in server code here InsuranceEngine.DTO.Questionnaire.QuestionnaireEnums.NodeTypes
+    var nodeTypes = {
+        Scheme: 1,
+        PageFolder: 2,
+        Page: 3,
+        PageQuestion: 4,
+        QuestionFolder: 5,
+        Question: 6,
+        RenderedPageFolder: 7,
+        RenderedPage: 8
+    }
+
+    $(document).ready(function () {
+
+        //disabled ajax caching (crappy IE!)
+        $.ajaxSetup({ cache: false });
+
+        $('#jsTree').jstree({
+            'core': {
+                'data': {
+                    url: '@Url.Content("~")Admin/AdminControls/GetTreeNodes/@Model.SchemeID',
+                    dataType: 'json'
+                }
+            },
+            "plugins": [
+              "contextmenu"
+            ]
+            , contextmenu: { items: customMenu }
+        }).bind('select_node.jstree',
+        function (e, data) {
+            //prevent right click from trigging the left click action
+            var evt = window.event || event;
+            var button = evt.which || evt.button;
+            if (button != 1 && (typeof button != "undefined")) return false;
+            nodeClick(e, data.node);
+        });
+
+
+
+    });
+
+    //context menu
+    function customMenu(node) {
+        //get the node type from the data
+        var nodeType = parseInt(node.data['@SchemeTreeNodeAttributes.NodeType']);
+
+        //get the id
+        var id = 0;
+        if (node.id.indexOf('-') > 0) {
+            id = parseInt(node.id.split('-')[1]);
+        }
+
+        var items = null;
+
+        switch (nodeType) {
+            case nodeTypes.Page:
+                items = {
+                    editPageItem: {
+                        label: "Edit Page",
+                        action: function () { window.location.href = "/Admin/Pages/EditPage/@Model.SchemeID/" + id; }
+                    },
+                    deletePageItem: {
+                        label: "Delete Page",
+                        action: function () { window.location.href = "/Admin/Pages/DeletePage/@Model.SchemeID/" + id; }
+                    },
+                    viewPageItem: {
+                        label: "View Page",
+                        action: function () { window.location.href = "/Admin/Pages/ViewPage/@Model.SchemeID/" + id; }
+                    },
+                    viewPageQuestionsItem: {
+                        label: "View Page Questions",
+                        action: function () { window.location.href = "/Admin/Pages/ViewPage/@Model.SchemeID/" + id +"?selectedTab=@PageTabs.PageQuestions"; }
+                    }
+                };
+                break;
+            case nodeTypes.PageQuestion:
+                var pageId = node.data['@SchemeTreeNodeAttributes.PageID'];
+                items = {
+                    editPageItem: {
+                        label: "Edit Page Question",
+                        action: function () { window.location.href = "/Admin/Pages/EditPageQuestion/@Model.SchemeID/" + "/" + pageId + "/" + id; }
+                    },
+                    deletePageItem: {
+                        label: "Delete Page Question",
+                        action: function () { window.location.href = "/Admin/Pages/DeletePageQuestion/@Model.SchemeID/" + "/" + pageId + "/" + id; }
+                    },
+                    viewPageQuestionsItem: {
+                        label: "View Page Question",
+                        action: function () { window.location.href = "/Admin/Pages/ViewPageQuestion/@Model.SchemeID/" + "/" + pageId + "/" + id + "?selectedTab=@PageQuestionTabs.PageQuestionDetails"; }
+                    },
+                    viewPageQuestionValidationItem: {
+                        label: "View Page Question Validation",
+                        action: function () { window.location.href = "/Admin/Pages/ViewPageQuestion/@Model.SchemeID/" + "/" + pageId + "/" + id + "?selectedTab=@PageQuestionTabs.Validation"; }
+                    },
+                    viewPageQuestionDisplayItem: {
+                        label: "View Page Question Display Conditions",
+                        action: function () { window.location.href = "/Admin/Pages/ViewPageQuestion/@Model.SchemeID/" + "/" + pageId + "/" + id + "?selectedTab=@PageQuestionTabs.DisplayConditions"; }
+                    }
+
+                };
+                break;
+            case nodeTypes.PageFolder:
+                items = {
+                    addPageItem: {
+                        label: "Add Page",
+                        action: function () { window.location.href = "/Admin/Pages/AddPage/@Model.SchemeID/"; }
+                    },
+                    viewPagesItem: {
+                        label: "View Pages",
+                        action: function () { window.location.href = "/Admin/Schemes/Scheme/@Model.SchemeID?selectedTab=@SchemePageTabs.Pages"; }
+                    }
+                };
+                break;
+            case nodeTypes.Question:
+                if (node.data['@SchemeTreeNodeAttributes.HasPossibleAnswers'] == "True") {
+                    items = {
+                        viewQuestionItem: {
+                            label: "View Question",
+                            action: function () { window.location.href = "/Admin/Questionnaire/ViewQuestion/@Model.SchemeID/" + id + "?selectedTab=@QuestionTabs.QuestionDetails"; }
+                        },
+                        editQuestionItem: {
+                            label: "Edit Question",
+                            action: function () { window.location.href = "/Admin/Questionnaire/EditQuestion/@Model.SchemeID/" + id; }
+                        },
+                        deleteQuestionItem: {
+                            label: "Delete Question",
+                            action: function () { window.location.href = "/Admin/Questionnaire/DeleteQuestion/@Model.SchemeID/" + id + "?selectedTab=@QuestionTabs.QuestionDetails"; }
+                        },
+                        viewPossibleAnswerItem: {
+                            label: "View Possible Answers",
+                            action: function () { window.location.href = "/Admin/Questionnaire/ViewQuestion/@Model.SchemeID/" + id + "?selectedTab=@QuestionTabs.PossibleAnswers"; }
+                        }
+                    };
+                }
+                else {
+                    items = {
+                        viewQuestionItem: {
+                            label: "View Question",
+                            action: function () { window.location.href = "/Admin/Questionnaire/ViewQuestion/@Model.SchemeID/" + id + "?selectedTab=@QuestionTabs.QuestionDetails"; }
+                        },
+                        editQuestionItem: {
+                            label: "Edit Question",
+                            action: function () { window.location.href = "/Admin/Questionnaire/EditQuestion/@Model.SchemeID/" + id; }
+                        },
+                        deleteQuestionItem: {
+                            label: "Delete Question",
+                            action: function () { alert('Delete Question ' + id) }
+                        }
+                    };
+                }
+
+                break;
+            case nodeTypes.QuestionFolder:
+
+                items = {
+                    addQuestionItem: {
+                        label: "Add Question",
+                        action: function () { window.location.href = "/Admin/Questionnaire/AddQuestion/@Model.SchemeID/" }
+                    },
+                    viewQuestionsItem: {
+                        label: "View Questions",
+                        action: function () { window.location.href = "/Admin/Schemes/Scheme/@Model.SchemeID?selectedTab=@SchemePageTabs.Questions"; }
+                    }
+                };
+
+                break;
+            case nodeTypes.RenderedPage:
+                var lastRenderDate = node.data['@SchemeTreeNodeAttributes.LastRenderDate'];
+                items = {
+                    lastRenderDateItem: {
+                        label: "Last Render Date - " + lastRenderDate,
+                        action: function () { return null; },
+                        _disabled: true
+                    }
+                };
+                break;
+            case nodeTypes.RenderedPageFolder:
+                items = {
+                    viewRenderPagesItem: {
+                        label: "View Rendered Pages",
+                        action: function () { window.location.href = "/Admin/Schemes/Scheme/@Model.SchemeID?selectedTab=@SchemePageTabs.RenderedPages"; }
+                    },
+                    renderAllPagesItem: {
+                        label: "Render Pages",
+                        action: function () { window.location.href = "/Admin/Pages/RenderPages/@Model.SchemeID"; }
+                    }
+                };
+                break;
+            case nodeTypes.Scheme:
+                items = {
+                    editSchemeItem: {
+                        label: "Edit Scheme",
+                        action: function () { window.location.href = "/Admin/Schemes/EditScheme/" + id; }
+                    },
+                    viewchemeItem: {
+                        label: "View Scheme",
+                        action: function () { window.location.href = "/Admin/Schemes/Scheme/" + id; }
+                    }
+                };
+                break;
+
+        }
+
+        return items;
+    }
+
+
+    //onlick for nodes
+    function nodeClick(e, node) {
+        //get the node type from the data
+        var nodeType = parseInt(node.data['@SchemeTreeNodeAttributes.NodeType']);
+
+        //get the id
+        var id = 0;
+        if (node.id.indexOf('-') > 0) {
+            id = parseInt(node.id.split('-')[1]);
+        }
+
+
+        switch (nodeType) {
+            case nodeTypes.Page:
+                window.location.href = "/Admin/Pages/ViewPage/@Model.SchemeID/" + id;
+                break;
+            case nodeTypes.PageQuestion:
+                var pageId = node.data['@SchemeTreeNodeAttributes.PageID'];
+                window.location.href = "/Admin/Pages/ViewPageQuestion/@Model.SchemeID/" + "/" + pageId + "/" + id + "?selectedTab=@PageQuestionTabs.PageQuestionDetails";
+                break;
+            case nodeTypes.PageFolder:
+                window.location.href = "/Admin/Schemes/Scheme/@Model.SchemeID?selectedTab=@SchemePageTabs.Pages";
+                break;
+            case nodeTypes.Question:
+                window.location.href = "/Admin/Questionnaire/ViewQuestion/@Model.SchemeID/" + id + "?selectedTab=@QuestionTabs.QuestionDetails";
+                break;
+            case nodeTypes.QuestionFolder:
+                window.location.href = "/Admin/Schemes/Scheme/@Model.SchemeID?selectedTab=@SchemePageTabs.Questions";
+                break;
+            case nodeTypes.RenderedPageFolder:
+                window.location.href = "/Admin/Schemes/Scheme/@Model.SchemeID?selectedTab=@SchemePageTabs.RenderedPages";
+                break;
+            case nodeTypes.Scheme:
+                window.location.href = "/Admin/Schemes/Scheme/" + id;
+                break;
+
+        }
+
+    }
+
+
+</script>

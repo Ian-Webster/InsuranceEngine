@@ -1,0 +1,40 @@
+﻿@model List<InsuranceEngine.DTO.Questionnaire.PageQuestionValidationDTO>
+@using InsuranceEngine.DTO.Questionnaire.QuestionnaireEnums;
+@{
+    
+    if (Model != null && Model.Count > 0)
+    {
+        //output the attribute to indicate that this question has validation
+        @Html.Raw(@" data-val=""true"" ")
+        
+        foreach (var validatorDTO in Model)
+        {
+            switch (validatorDTO.ValidationType)
+            {
+                case ValidationTypes.Required:
+                    @Html.Raw(@" data-val-required=""" + validatorDTO.ErrorMessage + @""" ")
+                    break;
+                case ValidationTypes.Regex:
+                    @Html.Raw(@" data-val-regex-pattern=""" + validatorDTO.ValidationExpression + @""" data-val-regex=""" + validatorDTO.ErrorMessage + @""" ")
+                    break;
+                case ValidationTypes.Date_Valid_Format:
+                    //using a fixed regex pattern for date format (uk), found here http://stackoverflow.com/questions/3767614/does-anyone-know-of-a-reg-expression-for-uk-date-format
+                    @Html.Raw(@" data-val-regex-pattern=""^(?:(?:(?:(?:31\/(?:0?[13578]|1[02]))|(?:(?:29|30)\/(?:0?[13-9]|1[0-2])))\/(?:1[6-9]|[2-9]\d)\d{2})|(?:29\/0?2\/(?:(?:(1[6-9]|[2-9]\d)(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))|(?:0?[1-9]|1\d|2[0-8])\/(?:(?:0?[1-9])|(?:1[0-2]))\/(?:(?:1[6-9]|[2-9]\d)\d{2}))$"" data-val-regex=""" + validatorDTO.ErrorMessage + @""" ")
+                    break;
+                case ValidationTypes.Numeric:
+                    @Html.Raw(@" data-val-number=""" + validatorDTO.ErrorMessage + @""" ")
+                    break;
+                case ValidationTypes.Date_After_Today:
+                case ValidationTypes.Date_Before_Today:
+                case ValidationTypes.Date_Max_Fixed_Number_of_Days:
+                case ValidationTypes.Date_Max_Fixed_Number_of_Years:
+                case ValidationTypes.Date_Min_Fixed_Number_of_Days:
+                case ValidationTypes.Date_Min_Fixed_Number_of_Years:
+                default:
+                    //these methods are currently supported server side only at this stage
+                    break;
+            }
+
+        }        
+    }    
+}

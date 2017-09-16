@@ -1,0 +1,58 @@
+﻿** Highlights
+     Tables that will be rebuilt
+       None
+     Clustered indexes that will be dropped
+       None
+     Clustered indexes that will be created
+       None
+     Possible data issues
+       None
+
+** User actions
+     Create
+       [dbo].[Page] (Table)
+       [dbo].[Page_Question] (Table)
+       [dbo].[Page_Question_Conditional_Display] (Table)
+       [dbo].[Page_Question_Validation] (Table)
+       [dbo].[Page_Template] (Table)
+       [dbo].[Question] (Table)
+       [dbo].[Question_Possible_Answer] (Table)
+       [dbo].[Question_Template] (Table)
+       [dbo].[Question_Type] (Table)
+       [dbo].[Quote] (Table)
+       [dbo].[Quote_Question_Answer] (Table)
+       [dbo].[Rendered_Page] (Table)
+       [dbo].[Scheme] (Table)
+       [dbo].[Validation_Type] (Table)
+       [dbo].[FK_Page_Page] (Foreign Key)
+       [dbo].[FK_Page_Page_Template] (Foreign Key)
+       [dbo].[FK_Page_Scheme] (Foreign Key)
+       [dbo].[FK_Page_Question_Page] (Foreign Key)
+       [dbo].[FK_Page_Question_Question] (Foreign Key)
+       [dbo].[FK_Page_Question_Conditional_Display_Page_Question] (Foreign Key)
+       [dbo].[FK_Page_Question_Conditional_Display_Page_Question1] (Foreign Key)
+       [dbo].[FK_Page_Question_Conditional_Display_Question_Possible_Answer] (Foreign Key)
+       [dbo].[FK_Page_Question_Validation_Page_Question] (Foreign Key)
+       [dbo].[FK_Page_Question_Validation_Validation_Type] (Foreign Key)
+       [dbo].[FK_Question_Question_Template] (Foreign Key)
+       [dbo].[FK_Question_Scheme] (Foreign Key)
+       [dbo].[FK_Question_Possible_Answer_Question] (Foreign Key)
+       [dbo].[FK_Question_Template_Question_Type] (Foreign Key)
+       [dbo].[FK_Quote_Scheme] (Foreign Key)
+       [dbo].[FK_Quote_Question_Answer_Question] (Foreign Key)
+       [dbo].[FK_Quote_Question_Answer_Question_Possible_Answer] (Foreign Key)
+       [dbo].[FK_Quote_Question_Answer_Quote] (Foreign Key)
+       [dbo].[FK_Rendered_Page_Page] (Foreign Key)
+       [dbo].[SpaceUpper] (Function)
+       [dbo].[_dev_DTOToTableObjectSave] (Procedure)
+       [dbo].[_dev_TableToAutoMapperMappings] (Procedure)
+       [dbo].[_dev_TableToDTO] (Procedure)
+       [dbo].[PageQuestions_ListPageQuestionDisplayConditionsForGrid] (Procedure)
+       [dbo].[PageQuestions_ListPageQuestionsForGrid] (Procedure)
+       [dbo].[PageQuestions_ListPageQuestionValidationForGrid] (Procedure)
+       [dbo].[Pages_ListPagesForGrid] (Procedure)
+       [dbo].[Questions_ListPossibleAnswerForGrid] (Procedure)
+       [dbo].[Questions_ListQuestionsForGrid] (Procedure)
+       [dbo].[RenderedPages_ListRenderedPagesForGrid] (Procedure)
+
+** Supporting actions

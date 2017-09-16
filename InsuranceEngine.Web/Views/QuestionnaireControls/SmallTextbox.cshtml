@@ -1,0 +1,26 @@
+@model InsuranceEngine.Web.Models.Questionnaire.QuestionVM
+
+@{
+    //required for server side validation to get server validated questions to have error messages displayed inline
+    bool serverValidationPassed = Html.ViewData.ModelState["Question_" + Model.Question.PageQuestionID.ToString()] == null;
+}
+<div class="form-group" id="QuestionContainer_@Model.Question.PageQuestionID" @Html.Raw(Model.Visibility.IsVisible ? string.Empty : @" style=""display:none""")>
+    <label for="Question_@Model.Question.PageQuestionID" class="control-label col-sm-4 @(Model.Question.IsRequired ? "required": string.Empty)">@Model.Question.QuestionText</label>
+    <div class="col-sm-6">
+        <input type="text" class="form-control smallTextBox @(!serverValidationPassed ? "input-validation-error" : string.Empty)" id="Question_@Model.Question.PageQuestionID" name="Question_@Model.Question.PageQuestionID"
+               value="@Model.GetAnswerText(Model.Question.QuestionID)"
+               @{ Html.RenderPartial("~/Views/QuestionnaireControls/Validation.cshtml", Model.Question.Validators); } />
+        <span class="field-validation-valid" data-valmsg-for="Question_@Model.Question.PageQuestionID" data-valmsg-replace="true"></span>
+        @{
+            //server side validation
+            if (!serverValidationPassed)
+            {
+                foreach (var error in Html.ViewData.ModelState["Question_" + @Model.Question.PageQuestionID.ToString()].Errors)
+                {
+                    <text><span class="field-validation-error">@error.ErrorMessage</span><br /></text>
+                }
+
+            }
+        }
+    </div>
+</div>

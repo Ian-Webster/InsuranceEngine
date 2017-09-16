@@ -1,0 +1,16 @@
+﻿/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.validation-summary-errors {
+    color: #b94a48 !important;
+}
+
+/* grid filter text box widths */
+.k-widget.k-autocomplete.k-header, .k-widget.k-datepicker.k-header, .k-widget.k-combobox.k-header {
+    width: 130px;
+}
+.narrow .k-widget.k-autocomplete.k-header, .narrow .k-widget.k-datepicker.k-header, .narrow .k-widget.k-combobox.k-header {
+    width: 90px;
+}

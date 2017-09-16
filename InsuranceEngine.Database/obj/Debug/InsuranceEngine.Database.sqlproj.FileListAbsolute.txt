@@ -1,0 +1,10 @@
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Database\bin\Debug\InsuranceEngine.Database.dacpac
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Database\obj\Debug\InsuranceEngine.Database.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Database\obj\Debug\InsuranceEngine.Database.pdb
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Database\bin\Debug\InsuranceEngine.Database.dll
+E:\Work\Projects\InsuranceEngine\InsuranceEngine\InsuranceEngine.Database\bin\Debug\InsuranceEngine.Database.pdb
+E:\Work\Git\InsuranceEngine\Trunk\InsuranceEngine\InsuranceEngine.Database\bin\Debug\InsuranceEngine.Database.dacpac
+E:\Work\Git\InsuranceEngine\Trunk\InsuranceEngine\InsuranceEngine.Database\bin\Debug\InsuranceEngine.Database.dll
+E:\Work\Git\InsuranceEngine\Trunk\InsuranceEngine\InsuranceEngine.Database\bin\Debug\InsuranceEngine.Database.pdb
+E:\Work\Git\InsuranceEngine\Trunk\InsuranceEngine\InsuranceEngine.Database\obj\Debug\InsuranceEngine.Database.dll
+E:\Work\Git\InsuranceEngine\Trunk\InsuranceEngine\InsuranceEngine.Database\obj\Debug\InsuranceEngine.Database.pdb

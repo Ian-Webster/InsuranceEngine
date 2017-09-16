@@ -1,0 +1,63 @@
+﻿.header-spacer
+{
+    height: 90px;
+}
+
+.footer-spacer
+{
+    height: 20px;
+}
+
+.footer
+{
+    border-radius : 0px;
+}
+
+.control-label.required:after {
+  content:"*";color:red;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid #b94a48 !important;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: white;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.form-label 
+{
+    padding-top: 9px;
+    height: 38px;
+    width: 100%;
+    display:block;
+    line-height: 1.4285;
+}
+
+.tab-content
+{
+    margin-top: 20px;
+}
+
+/* styles of questionnaire controls */
+.smallTextBox{
+    width: 50%;
+    min-width: 80px;
+}

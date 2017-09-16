@@ -1,0 +1,47 @@
+@model InsuranceEngine.Web.Models.Questionnaire.QuestionVM
+
+@{
+    //required for server side validation to get server validated questions to have error messages displayed inline
+    bool serverValidationPassed = Html.ViewData.ModelState["Question_" + Model.Question.PageQuestionID.ToString()] == null;
+}
+<div class="form-group" id="QuestionContainer_@Model.Question.PageQuestionID" @Html.Raw(Model.Visibility.IsVisible ? string.Empty : @" style=""display:none""")>
+    <label for="Question_@Model.Question.PageQuestionID" class="control-label col-sm-4 @(Model.Question.IsRequired ? "required": string.Empty)">@Model.Question.QuestionText</label>
+    <div class="col-sm-6">
+        <div class='input-group date' id='Question_@Model.Question.PageQuestionID'>
+            <input type="text" class="form-control @(!serverValidationPassed ? "input-validation-error" : string.Empty)" value="@Model.GetAnswerText(Model.Question.QuestionID)" name='Question_@Model.Question.PageQuestionID'
+                   @{ Html.RenderPartial("~/Views/QuestionnaireControls/Validation.cshtml", Model.Question.Validators); } />
+            <span class="input-group-addon">
+                <span class="fa fa-calendar"></span>
+            </span>
+        </div>
+        <span class="field-validation-valid" data-valmsg-for="Question_@Model.Question.PageQuestionID" data-valmsg-replace="true"></span>
+        @{
+            //server side validation
+            if (!serverValidationPassed)
+            {
+                foreach (var error in Html.ViewData.ModelState["Question_" + @Model.Question.PageQuestionID.ToString()].Errors)
+                {
+                    <text><span class="field-validation-error">@error.ErrorMessage</span><br /></text>
+                }
+
+            }
+        }
+    </div>
+</div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(
+    function () {
+        $('#Question_@Model.Question.PageQuestionID').datepicker({
+            pickTime: true,
+            format: "dd/mm/yyyy",
+            todayBtn: "linked",
+            autoclose: true,
+            todayHighlight: true
+        });
+    });
+</script>
+
+@*http://bootstrap-datepicker.readthedocs.org/en/release/options.html*@

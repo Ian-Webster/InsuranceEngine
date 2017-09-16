@@ -1,0 +1,35 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.PagePageQuestionsVM
+
+@(
+ Html.Kendo().Grid(Model.PageQuestions)
+                            .Name("PageQuestionsGrid")
+                            .Columns(columns =>
+                            {
+                                columns.Bound(p => p.Question).Title("Question").Width("20%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.QuestionText).Title("Question Display Text").Width("20%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.QuestionName).Title("Question Name").Width("20%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.DisplayOrder).Title("Display Order").Width("15%").Filterable(ftb => ftb.Enabled(false));
+                                columns.Bound(p => p.DefaultShow).Title("Default Show").Width("15%");
+                                columns.Template(p => p.PageQuestionID).Title("").Width("10%")
+                                    .ClientTemplate(
+                                    "<a href='" + @Url.Content("~") + "Admin/Pages/ViewPageQuestion/" + @Model.SchemeID + @"/" + @Model.PageID + "/#=PageQuestionID#'>View</a> | " +
+                                    "<a href='" + @Url.Content("~") + "Admin/Pages/EditPageQuestion/" + @Model.SchemeID + @"/" + @Model.PageID + "/#=PageQuestionID#'>Edit</a> | " +
+                                    "<a href='" + @Url.Content("~") + "Admin/Pages/DeletePageQuestion/" + @Model.SchemeID + @"/" + @Model.PageID + "/#=PageQuestionID#'>Delete</a>"
+                                    );
+                            })
+                            .Pageable()
+                            .Sortable()
+                            .Scrollable(s => s.Height("50%"))
+                            .Filterable(filter =>
+                                {
+                                    filter.Mode(GridFilterMode.Row);
+                                }
+                            )
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .ServerOperation(true)
+                                .PageSize(10)
+                                .Read(read => read.Action("GetPageQuestionsByPage", "Pages", new { Area = "Admin", schemeId = @Model.SchemeID, pageId = @Model.PageID }))
+                            )
+        //.Events(events => events.DataBound("GridBound"))
+)

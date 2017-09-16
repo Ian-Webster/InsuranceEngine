@@ -1,0 +1,10 @@
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Fusion.Caching\bin\Debug\Fusion.Caching.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Fusion.Caching\bin\Debug\Fusion.Caching.pdb
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Fusion.Caching\obj\Debug\Fusion.Caching.csprojResolveAssemblyReference.cache
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Fusion.Caching\obj\Debug\Fusion.Caching.dll
+C:\Demo Project\Galileo - Phase 3\GalileoV2\Fusion.Caching\obj\Debug\Fusion.Caching.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Fusion.Caching\bin\Debug\Fusion.Caching.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Fusion.Caching\bin\Debug\Fusion.Caching.pdb
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Fusion.Caching\obj\Debug\Fusion.Caching.csprojResolveAssemblyReference.cache
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Fusion.Caching\obj\Debug\Fusion.Caching.dll
+E:\Work\Projects\Galileo - Phase 3\GalileoV2\Fusion.Caching\obj\Debug\Fusion.Caching.pdb

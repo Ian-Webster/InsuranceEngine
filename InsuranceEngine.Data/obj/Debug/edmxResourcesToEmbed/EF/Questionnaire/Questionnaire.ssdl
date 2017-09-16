@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InsuranceEngine.Data.EF.Questionnaire.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Page">
+    <Key>
+      <PropertyRef Name="Page_ID" />
+    </Key>
+    <Property Name="Page_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Page_Template_ID" Type="int" Nullable="false" />
+    <Property Name="Scheme_ID" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="Next_Page_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Page_Question">
+    <Key>
+      <PropertyRef Name="Page_Question_ID" />
+    </Key>
+    <Property Name="Page_Question_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Page_ID" Type="int" Nullable="false" />
+    <Property Name="Question_ID" Type="int" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+    <Property Name="QuestionText" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="QuestionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DefaultShow" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Page_Question_Conditional_Display">
+    <Key>
+      <PropertyRef Name="Page_Question_Conditional_Display_ID" />
+    </Key>
+    <Property Name="Page_Question_Conditional_Display_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Source_Page_Question_ID" Type="int" Nullable="false" />
+    <Property Name="Target_Page_Question_ID" Type="int" Nullable="false" />
+    <Property Name="Trigger_Question_Possible_Answer_ID" Type="int" Nullable="false" />
+    <Property Name="Hide" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Page_Question_Validation">
+    <Key>
+      <PropertyRef Name="Page_Question_Validation_ID" />
+    </Key>
+    <Property Name="Page_Question_Validation_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Page_Question_ID" Type="int" Nullable="false" />
+    <Property Name="Validation_Type_ID" Type="int" Nullable="false" />
+    <Property Name="ErrorMessage" Type="nvarchar" MaxLength="1024" Nullable="false" />
+    <Property Name="ValidationExpression" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Page_Template">
+    <Key>
+      <PropertyRef Name="Page_Template_ID" />
+    </Key>
+    <Property Name="Page_Template_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="TemplateContent" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="Question_ID" />
+    </Key>
+    <Property Name="Question_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Scheme_ID" Type="int" Nullable="false" />
+    <Property Name="Question_Template_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Question_Possible_Answer">
+    <Key>
+      <PropertyRef Name="Question_Possible_Answer_ID" />
+    </Key>
+    <Property Name="Question_Possible_Answer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question_ID" Type="int" Nullable="false" />
+    <Property Name="AnswerText" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AnswerValue" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="DisplayOrder" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Question_Template">
+    <Key>
+      <PropertyRef Name="Question_Template_ID" />
+    </Key>
+    <Property Name="Question_Template_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Question_Type_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Template" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastRenderDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Question_Type">
+    <Key>
+      <PropertyRef Name="Question_Type_ID" />
+    </Key>
+    <Property Name="Question_Type_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="HasPossibleAnswers" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quote">
+    <Key>
+      <PropertyRef Name="Quote_ID" />
+    </Key>
+    <Property Name="Quote_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Scheme_ID" Type="int" Nullable="false" />
+    <Property Name="Reference" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="QuoteDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Quote_Question_Answer">
+    <Key>
+      <PropertyRef Name="Quote_Question_Answer_ID" />
+    </Key>
+    <Property Name="Quote_Question_Answer_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Quote_ID" Type="int" Nullable="false" />
+    <Property Name="Question_ID" Type="int" Nullable="false" />
+    <Property Name="Question_Possible_Answer_ID" Type="int" />
+    <Property Name="Answer" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Rendered_Page">
+    <Key>
+      <PropertyRef Name="Rendered_Page_ID" />
+    </Key>
+    <Property Name="Rendered_Page_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Page_ID" Type="int" Nullable="false" />
+    <Property Name="PageContent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastRenderDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Scheme">
+    <Key>
+      <PropertyRef Name="Scheme_ID" />
+    </Key>
+    <Property Name="Scheme_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Validation_Type">
+    <Key>
+      <PropertyRef Name="Validation_Type_ID" />
+    </Key>
+    <Property Name="Validation_Type_ID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="DataType" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Page_Page">
+    <End Role="Page" Type="Self.Page" Multiplicity="0..1" />
+    <End Role="Page1" Type="Self.Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="Page_ID" />
+      </Principal>
+      <Dependent Role="Page1">
+        <PropertyRef Name="Next_Page_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Page_Template">
+    <End Role="Page_Template" Type="Self.Page_Template" Multiplicity="1" />
+    <End Role="Page" Type="Self.Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page_Template">
+        <PropertyRef Name="Page_Template_ID" />
+      </Principal>
+      <Dependent Role="Page">
+        <PropertyRef Name="Page_Template_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Question_Conditional_Display_Page_Question">
+    <End Role="Page_Question" Type="Self.Page_Question" Multiplicity="1" />
+    <End Role="Page_Question_Conditional_Display" Type="Self.Page_Question_Conditional_Display" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page_Question">
+        <PropertyRef Name="Page_Question_ID" />
+      </Principal>
+      <Dependent Role="Page_Question_Conditional_Display">
+        <PropertyRef Name="Source_Page_Question_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Question_Conditional_Display_Page_Question1">
+    <End Role="Page_Question" Type="Self.Page_Question" Multiplicity="1" />
+    <End Role="Page_Question_Conditional_Display" Type="Self.Page_Question_Conditional_Display" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page_Question">
+        <PropertyRef Name="Page_Question_ID" />
+      </Principal>
+      <Dependent Role="Page_Question_Conditional_Display">
+        <PropertyRef Name="Target_Page_Question_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Question_Conditional_Display_Question_Possible_Answer">
+    <End Role="Question_Possible_Answer" Type="Self.Question_Possible_Answer" Multiplicity="1" />
+    <End Role="Page_Question_Conditional_Display" Type="Self.Page_Question_Conditional_Display" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question_Possible_Answer">
+        <PropertyRef Name="Question_Possible_Answer_ID" />
+      </Principal>
+      <Dependent Role="Page_Question_Conditional_Display">
+        <PropertyRef Name="Trigger_Question_Possible_Answer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Question_Page">
+    <End Role="Page" Type="Self.Page" Multiplicity="1" />
+    <End Role="Page_Question" Type="Self.Page_Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="Page_ID" />
+      </Principal>
+      <Dependent Role="Page_Question">
+        <PropertyRef Name="Page_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Question_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="Page_Question" Type="Self.Page_Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Question_ID" />
+      </Principal>
+      <Dependent Role="Page_Question">
+        <PropertyRef Name="Question_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Question_Validation_Page_Question">
+    <End Role="Page_Question" Type="Self.Page_Question" Multiplicity="1" />
+    <End Role="Page_Question_Validation" Type="Self.Page_Question_Validation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page_Question">
+        <PropertyRef Name="Page_Question_ID" />
+      </Principal>
+      <Dependent Role="Page_Question_Validation">
+        <PropertyRef Name="Page_Question_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Question_Validation_Validation_Type">
+    <End Role="Validation_Type" Type="Self.Validation_Type" Multiplicity="1" />
+    <End Role="Page_Question_Validation" Type="Self.Page_Question_Validation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Validation_Type">
+        <PropertyRef Name="Validation_Type_ID" />
+      </Principal>
+      <Dependent Role="Page_Question_Validation">
+        <PropertyRef Name="Validation_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Page_Scheme">
+    <End Role="Scheme" Type="Self.Scheme" Multiplicity="1" />
+    <End Role="Page" Type="Self.Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scheme">
+        <PropertyRef Name="Scheme_ID" />
+      </Principal>
+      <Dependent Role="Page">
+        <PropertyRef Name="Scheme_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Possible_Answer_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="Question_Possible_Answer" Type="Self.Question_Possible_Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Question_ID" />
+      </Principal>
+      <Dependent Role="Question_Possible_Answer">
+        <PropertyRef Name="Question_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Question_Template">
+    <End Role="Question_Template" Type="Self.Question_Template" Multiplicity="1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question_Template">
+        <PropertyRef Name="Question_Template_ID" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="Question_Template_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Scheme">
+    <End Role="Scheme" Type="Self.Scheme" Multiplicity="1" />
+    <End Role="Question" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scheme">
+        <PropertyRef Name="Scheme_ID" />
+      </Principal>
+      <Dependent Role="Question">
+        <PropertyRef Name="Scheme_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Question_Template_Question_Type">
+    <End Role="Question_Type" Type="Self.Question_Type" Multiplicity="1" />
+    <End Role="Question_Template" Type="Self.Question_Template" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question_Type">
+        <PropertyRef Name="Question_Type_ID" />
+      </Principal>
+      <Dependent Role="Question_Template">
+        <PropertyRef Name="Question_Type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quote_Question_Answer_Question">
+    <End Role="Question" Type="Self.Question" Multiplicity="1" />
+    <End Role="Quote_Question_Answer" Type="Self.Quote_Question_Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question">
+        <PropertyRef Name="Question_ID" />
+      </Principal>
+      <Dependent Role="Quote_Question_Answer">
+        <PropertyRef Name="Question_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quote_Question_Answer_Question_Possible_Answer">
+    <End Role="Question_Possible_Answer" Type="Self.Question_Possible_Answer" Multiplicity="0..1" />
+    <End Role="Quote_Question_Answer" Type="Self.Quote_Question_Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Question_Possible_Answer">
+        <PropertyRef Name="Question_Possible_Answer_ID" />
+      </Principal>
+      <Dependent Role="Quote_Question_Answer">
+        <PropertyRef Name="Question_Possible_Answer_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quote_Question_Answer_Quote">
+    <End Role="Quote" Type="Self.Quote" Multiplicity="1" />
+    <End Role="Quote_Question_Answer" Type="Self.Quote_Question_Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Quote">
+        <PropertyRef Name="Quote_ID" />
+      </Principal>
+      <Dependent Role="Quote_Question_Answer">
+        <PropertyRef Name="Quote_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Quote_Scheme">
+    <End Role="Scheme" Type="Self.Scheme" Multiplicity="1" />
+    <End Role="Quote" Type="Self.Quote" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Scheme">
+        <PropertyRef Name="Scheme_ID" />
+      </Principal>
+      <Dependent Role="Quote">
+        <PropertyRef Name="Scheme_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Rendered_Page_Page">
+    <End Role="Page" Type="Self.Page" Multiplicity="1" />
+    <End Role="Rendered_Page" Type="Self.Rendered_Page" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Page">
+        <PropertyRef Name="Page_ID" />
+      </Principal>
+      <Dependent Role="Rendered_Page">
+        <PropertyRef Name="Page_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="PageQuestions_ListPageQuestionDisplayConditionsForGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageQuestionID" Type="int" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OrderClause" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="CurrentPageIndex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PageQuestions_ListPageQuestionsForGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageID" Type="int" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OrderClause" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="CurrentPageIndex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="PageQuestions_ListPageQuestionValidationForGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PageQuestionID" Type="int" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OrderClause" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="CurrentPageIndex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Pages_ListPagesForGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SchemeID" Type="int" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OrderClause" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="CurrentPageIndex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Questions_ListPossibleAnswerForGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="QuestionID" Type="int" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OrderClause" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="CurrentPageIndex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Questions_ListQuestionsForGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SchemeID" Type="int" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OrderClause" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="CurrentPageIndex" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RenderedPages_ListRenderedPagesForGrid" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="SchemeID" Type="int" Mode="In" />
+    <Parameter Name="WhereClause" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="OrderClause" Type="nvarchar" Mode="In" />
+    <Parameter Name="PageSize" Type="int" Mode="In" />
+    <Parameter Name="CurrentPageIndex" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="InsuranceEngineDataEFQuestionnaireStoreContainer">
+    <EntitySet Name="Page" EntityType="Self.Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Page_Question" EntityType="Self.Page_Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Page_Question_Conditional_Display" EntityType="Self.Page_Question_Conditional_Display" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Page_Question_Validation" EntityType="Self.Page_Question_Validation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Page_Template" EntityType="Self.Page_Template" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question" EntityType="Self.Question" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question_Possible_Answer" EntityType="Self.Question_Possible_Answer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question_Template" EntityType="Self.Question_Template" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Question_Type" EntityType="Self.Question_Type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quote" EntityType="Self.Quote" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Quote_Question_Answer" EntityType="Self.Quote_Question_Answer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rendered_Page" EntityType="Self.Rendered_Page" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Scheme" EntityType="Self.Scheme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Validation_Type" EntityType="Self.Validation_Type" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Page_Page" Association="Self.FK_Page_Page">
+      <End Role="Page" EntitySet="Page" />
+      <End Role="Page1" EntitySet="Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Page_Template" Association="Self.FK_Page_Page_Template">
+      <End Role="Page_Template" EntitySet="Page_Template" />
+      <End Role="Page" EntitySet="Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Question_Conditional_Display_Page_Question" Association="Self.FK_Page_Question_Conditional_Display_Page_Question">
+      <End Role="Page_Question" EntitySet="Page_Question" />
+      <End Role="Page_Question_Conditional_Display" EntitySet="Page_Question_Conditional_Display" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Question_Conditional_Display_Page_Question1" Association="Self.FK_Page_Question_Conditional_Display_Page_Question1">
+      <End Role="Page_Question" EntitySet="Page_Question" />
+      <End Role="Page_Question_Conditional_Display" EntitySet="Page_Question_Conditional_Display" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Question_Conditional_Display_Question_Possible_Answer" Association="Self.FK_Page_Question_Conditional_Display_Question_Possible_Answer">
+      <End Role="Question_Possible_Answer" EntitySet="Question_Possible_Answer" />
+      <End Role="Page_Question_Conditional_Display" EntitySet="Page_Question_Conditional_Display" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Question_Page" Association="Self.FK_Page_Question_Page">
+      <End Role="Page" EntitySet="Page" />
+      <End Role="Page_Question" EntitySet="Page_Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Question_Question" Association="Self.FK_Page_Question_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Page_Question" EntitySet="Page_Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Question_Validation_Page_Question" Association="Self.FK_Page_Question_Validation_Page_Question">
+      <End Role="Page_Question" EntitySet="Page_Question" />
+      <End Role="Page_Question_Validation" EntitySet="Page_Question_Validation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Question_Validation_Validation_Type" Association="Self.FK_Page_Question_Validation_Validation_Type">
+      <End Role="Validation_Type" EntitySet="Validation_Type" />
+      <End Role="Page_Question_Validation" EntitySet="Page_Question_Validation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Page_Scheme" Association="Self.FK_Page_Scheme">
+      <End Role="Scheme" EntitySet="Scheme" />
+      <End Role="Page" EntitySet="Page" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Possible_Answer_Question" Association="Self.FK_Question_Possible_Answer_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Question_Possible_Answer" EntitySet="Question_Possible_Answer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Question_Template" Association="Self.FK_Question_Question_Template">
+      <End Role="Question_Template" EntitySet="Question_Template" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Scheme" Association="Self.FK_Question_Scheme">
+      <End Role="Scheme" EntitySet="Scheme" />
+      <End Role="Question" EntitySet="Question" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Question_Template_Question_Type" Association="Self.FK_Question_Template_Question_Type">
+      <End Role="Question_Type" EntitySet="Question_Type" />
+      <End Role="Question_Template" EntitySet="Question_Template" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quote_Question_Answer_Question" Association="Self.FK_Quote_Question_Answer_Question">
+      <End Role="Question" EntitySet="Question" />
+      <End Role="Quote_Question_Answer" EntitySet="Quote_Question_Answer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quote_Question_Answer_Question_Possible_Answer" Association="Self.FK_Quote_Question_Answer_Question_Possible_Answer">
+      <End Role="Question_Possible_Answer" EntitySet="Question_Possible_Answer" />
+      <End Role="Quote_Question_Answer" EntitySet="Quote_Question_Answer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quote_Question_Answer_Quote" Association="Self.FK_Quote_Question_Answer_Quote">
+      <End Role="Quote" EntitySet="Quote" />
+      <End Role="Quote_Question_Answer" EntitySet="Quote_Question_Answer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Quote_Scheme" Association="Self.FK_Quote_Scheme">
+      <End Role="Scheme" EntitySet="Scheme" />
+      <End Role="Quote" EntitySet="Quote" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Rendered_Page_Page" Association="Self.FK_Rendered_Page_Page">
+      <End Role="Page" EntitySet="Page" />
+      <End Role="Rendered_Page" EntitySet="Rendered_Page" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

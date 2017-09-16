@@ -1,0 +1,54 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.PageQuestionValidationVM
+
+@(
+    Html.Kendo().Grid(Model.Validations)
+                .Name("PageQuestionValidationsGrid")
+                .Columns(columns =>
+                {
+                    columns.Bound(p => p.ValidationType).Title("Validation Type").Width("20%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                    columns.Bound(p => p.ValidationMessage).Title("Error Message").Width("60%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));                    
+                    columns.Template(p => p.PageQuestionValidationID).Title("").Width("20%")
+                        .ClientTemplate(
+                        "<a href='" + @Url.Content("~") + "Admin/Pages/EditPageQuestionValidation/" + @Model.SchemeID + @"/" + @Model.PageID + @"/" + @Model.PageQuestionID + "/#=PageQuestionValidationID#'>Edit</a> | " +
+                        "<a href='javascript:deleteValidation(#=PageQuestionValidationID#)'>Delete</a>"
+                        );
+                })
+                .Pageable()
+                .Sortable()
+                .Scrollable(s => s.Height("50%"))
+                .Filterable(filter =>
+                    {
+                        filter.Mode(GridFilterMode.Row);
+                    }
+                )
+                .DataSource(dataSource => dataSource
+                    .Ajax()
+                    .ServerOperation(true)
+                    .PageSize(10)
+                    .Read(read => read.Action("GetPageQuestionValidationsByPageQuestion", "Pages", new { Area = "Admin", schemeId = @Model.SchemeID, pageId = @Model.PageID, pageQuestionId = @Model.PageQuestionID }))
+                )
+        //.Events(events => events.DataBound("GridBound"))
+)
+
+<script type="text/javascript">
+
+    function deleteValidation(validationID) {
+
+        //http://bootboxjs.com/#examples
+
+        bootbox.confirm("Are you sure you want to delete the page question validation?", function (result) {
+            if (result) {
+                //perform delete
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: "@Url.Content("~")Admin/Pages/DeletePageQuestionValidation?pageQuestionValidationId=" + validationID,
+                    success: function (data) {
+                        bootbox.alert(data);
+                        location.reload();
+                    }
+                });
+            }
+        });
+    }
+</script>

@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "LayoutSample";
+    Layout = "~/Areas/Customer/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+<div class="col-xs-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Sample Controls</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="alert alert-danger">
+                <strong>Please correct the following</strong>;
+            </div>
+
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4 required">Text Box Question</label>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4 required">Dropdown Question</label>
+                    <div class="col-sm-6">
+                        <select class="form-control">
+                            <option value="one">One</option>
+                            <option value="two">Two</option>
+                            <option value="three">Three</option>
+                            <option value="four">Four</option>
+                            <option value="five">Five</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-4 required">Radio Button List Question</label>
+                    <div class="col-sm-6">
+                        <div class="form">
+                            <label class="radio">
+                                <input value="1" type="radio" name="rd">One
+                            </label>
+                            <label class="radio">
+                                <input value="2" type="radio" name="rd">Two
+                            </label>
+                            <label class="radio">
+                                <input value="3" type="radio" name="rd">Three
+                            </label>
+                            <label class="radio">
+                                <input value="4" type="radio" name="rd">Four
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-1 col-xs-1">
+                        <a href="#" class="btn btn-default">Back</a>
+                    </div>                    
+                    <div class="col-sm-3 col-xs-7">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-1 col-xs-1">
+                        <a href="#" class="btn btn-primary">Next</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+

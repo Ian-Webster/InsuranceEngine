@@ -1,0 +1,98 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.PageQuestionVM
+@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+
+@{
+    ViewBag.Title = "ViewPageQuestion";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenu.cshtml";
+}
+<ul class="nav nav-pills">
+    <li @Html.Raw(Model.SelectedTab == PageQuestionTabs.PageQuestionDetails ? @"class=""active""" : string.Empty)><a href="#pageQuestionDetails" data-toggle="tab">Page Question Details <span class="badge"></span></a></li>
+    <li @Html.Raw(Model.SelectedTab == PageQuestionTabs.Validation ? @"class=""active""" : string.Empty)><a href="#validation" data-toggle="tab">Validation<span class="badge">@Model.Stats.ValidationCount</span></a></li>
+    <li @Html.Raw(Model.SelectedTab == PageQuestionTabs.DisplayConditions ? @"class=""active""" : string.Empty)><a href="#displayConditions" data-toggle="tab">Display Conditions<span class="badge">@Model.Stats.DisplayConditionCount</span></a></li>    
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade @(Model.SelectedTab == PageQuestionTabs.PageQuestionDetails ? "active in" : string.Empty)" id="pageQuestionDetails">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Page Question Details - @Model.PageQuestion.QuestionName</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="row">
+                        @Html.LabelFor(model => model.PageQuestion.Question, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.PageQuestion.Question</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @Html.LabelFor(model => model.PageQuestion.QuestionText, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.PageQuestion.QuestionText</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @Html.LabelFor(model => model.PageQuestion.QuestionName, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.PageQuestion.QuestionName</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @Html.LabelFor(model => model.PageQuestion.DisplayOrder, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.PageQuestion.DisplayOrder</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        @Html.LabelFor(model => model.PageQuestion.DefaultShow, new { @class = "control-label col-sm-4" })
+                        <div class="col-sm-6">
+                            <span class="form-label">@Model.PageQuestion.DefaultShow</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            &nbsp;
+                        </div>
+                        <div class="col-sm-1">
+                            @Html.ActionLink("Edit Page Question", "EditPageQuestion", new { pageQuestionId = @Model.PageQuestionID, schemeId = @Model.SchemeID, pageId = @Model.PageID }, new { @class = "btn btn-primary" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade @(Model.SelectedTab == PageQuestionTabs.Validation ? "active in" : string.Empty)" id="validation">
+        @{Html.RenderAction("ListPageQuestionValidationsByPageQuestion", "Pages", new { schemeId = @Model.SchemeID, pageId = @Model.PageID, pageQuestionId = @Model.PageQuestionID});}
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    &nbsp;
+                </div>
+                <div class="col-sm-1">
+                    @Html.ActionLink("Add Validation", "AddPageQuestionValidation", "Pages", new { schemeId = @Model.SchemeID, pageId = @Model.PageID, pageQuestionId = @Model.PageQuestionID }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="tab-pane fade @(Model.SelectedTab == PageQuestionTabs.DisplayConditions ? "active in" : string.Empty)" id="displayConditions">
+        @{Html.RenderAction("ListPageQuestionDisplayConditionsByPageQuestion", "Pages", new { schemeId = @Model.SchemeID, pageId = @Model.PageID, pageQuestionId = @Model.PageQuestionID });}
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    &nbsp;
+                </div>
+                <div class="col-sm-1">
+                    @Html.ActionLink("Add Display Condition", "AddPageQuestionConditionalDisplay", "Pages", new { schemeId = @Model.SchemeID, pageId = @Model.PageID, pageQuestionId = @Model.PageQuestionID }, new { @class = "btn btn-primary" })
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

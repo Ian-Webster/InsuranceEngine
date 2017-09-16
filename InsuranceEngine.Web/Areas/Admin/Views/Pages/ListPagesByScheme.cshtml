@@ -1,0 +1,34 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.SchemePagesVM
+
+@(
+ Html.Kendo().Grid(Model.Pages)
+                            .Name("PagesGrid")
+                            .Columns(columns =>
+                            {
+                                columns.Bound(p => p.Name).Title("Name").Width("20%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.Title).Title("Title").Width("20%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.DisplayOrder).Title("Display Order").Width("11%").Filterable(ftb => ftb.Enabled(false));
+                                columns.Bound(p => p.NextPageName).Title("Next Page name").Width("20%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Template(p => p.PageID).Title("").Width("10%")
+                                    .ClientTemplate(
+                                    "<a href='" + @Url.Content("~") + "Admin/Pages/ViewPage/" + @Model.SchemeID + "/#=PageID#'>View</a> | "+
+                                    "<a href='" + @Url.Content("~") + "Admin/Pages/EditPage/" + @Model.SchemeID + "/#=PageID#'>Edit</a> | " +
+                                    "<a href='" + @Url.Content("~") + "Admin/Pages/DeletePage/" + @Model.SchemeID + "/#=PageID#'>Delete</a>"
+                                    );
+                            })
+                            .Pageable()
+                            .Sortable()
+                            .Scrollable(s => s.Height("50%"))
+                            .Filterable(filter =>
+                                {
+                                    filter.Mode(GridFilterMode.Row);
+                                }
+                            )
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .ServerOperation(true)
+                                .PageSize(10)
+                                .Read(read => read.Action("GetPagesByScheme", "Pages", new { Area = "Admin", schemeId = @Model.SchemeID }))
+                            )
+        //.Events(events => events.DataBound("GridBound"))
+)

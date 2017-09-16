@@ -1,0 +1,55 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.PageQuestionDisplayConditionVM
+
+@(
+    Html.Kendo().Grid(Model.DisplayConditions)
+                            .Name("PageQuestionDisplayConditionsGrid")
+                            .Columns(columns =>
+                            {
+                                columns.Bound(p => p.SourcePageQuestionName).Title("Source Page Question").Width("35%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.TriggerAnswer).Title("Trigger Answer").Width("35%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.Hide).Title("Hide Question").Width("15%");
+                                columns.Template(p => p.PageQuestionConditionalDisplayID).Title("").Width("15%")
+                                    .ClientTemplate(
+                                    "<a href='" + @Url.Content("~") + "Admin/Pages/EditPageQuestionConditionalDisplay/" + @Model.SchemeID + @"/" + @Model.PageID + @"/" + @Model.PageQuestionID + "/#=PageQuestionConditionalDisplayID#'>Edit</a> | " +
+                                    "<a href='javascript:deleteConditionalDisplay(#=PageQuestionConditionalDisplayID#)'>Delete</a>"
+                                    );
+                            })
+                            .Pageable()
+                            .Sortable()
+                            .Scrollable(s => s.Height("50%"))
+                            .Filterable(filter =>
+                                {
+                                    filter.Mode(GridFilterMode.Row);
+                                }
+                            )
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .ServerOperation(true)
+                                .PageSize(10)
+                                .Read(read => read.Action("GetPageQuestionDisplayConditionsByPageQuestion", "Pages", new { Area = "Admin", schemeId = @Model.SchemeID, pageId = @Model.PageID, pageQuestionId = @Model.PageQuestionID }))
+                            )
+        //.Events(events => events.DataBound("GridBound"))
+)
+
+<script type="text/javascript">
+
+    function deleteConditionalDisplay(conditionalDisplayID) {
+
+        //http://bootboxjs.com/#examples
+
+        bootbox.confirm("Are you sure you want to delete the page question display condition?", function (result) {
+            if (result) {
+                //perform delete
+                $.ajax({
+                    type: "GET",
+                    dataType: "json",
+                    url: "@Url.Content("~")Admin/Pages/DeletePageQuestionConditionalDisplay?pageQuestionConditionalDisplayId=" + conditionalDisplayID,
+                    success: function (data) {
+                        bootbox.alert(data);
+                        location.reload();
+                    }
+                });
+            }
+        });
+    }
+</script>

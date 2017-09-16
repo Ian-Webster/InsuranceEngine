@@ -1,0 +1,73 @@
+﻿@model InsuranceEngine.DTO.Questionnaire.PageQuestionValidationDTO
+@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+@{
+    ViewBag.Title = "AddPageQuestionValidation";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.PageQuestionID)
+    @Html.HiddenFor(model => model.PageQuestionValidationID)
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit Page Question Validation - @Model.PageQuestionValidationID</h3>
+        </div>
+        <div class="panel-body">
+
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <strong>Please correct the following</strong>;
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ValidationType, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">                        
+                        @Html.EnumDropDownListFor(model => model.ValidationType, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ValidationType)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ErrorMessage, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        <p>Use the merge field $$QuestionName$$ to merge in the name of the question</p>
+                        @Html.TextAreaFor(model => model.ErrorMessage, new { @class = "form-control", rows = 2 })
+                        @Html.ValidationMessageFor(model => model.ErrorMessage)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ValidationExpression, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-6">
+                        @Html.TextAreaFor(model => model.ValidationExpression, new { @class = "form-control", rows = 4 })
+                        @Html.ValidationMessageFor(model => model.ValidationExpression)
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.ActionLink("Cancel", "ViewPageQuestion", new { selectedTab = PageQuestionTabs.Validation }, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

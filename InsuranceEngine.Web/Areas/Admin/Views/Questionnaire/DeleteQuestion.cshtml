@@ -1,0 +1,67 @@
+﻿@model InsuranceEngine.DTO.Questionnaire.Admin.QuestionForAdminDisplayDTO
+@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+@{
+    ViewBag.Title = "DeleteQuestion";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenuNoTreeView.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.Code)
+    @Html.HiddenFor(model => model.HasPossibleAnswers)
+    @Html.HiddenFor(model => model.Name)
+    @Html.HiddenFor(model => model.QuestionID)
+    @Html.HiddenFor(model => model.QuestionTemplate)
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Delete Question - @Model.Name</h3>
+        </div>
+        <div class="panel-body">
+            <p>Are you sure you want to delete this question? Any answers for this question will also be deleted.</p>
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="submit" value="Yes" class="btn btn-danger" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.ActionLink("No", "Scheme", "Schemes", new { selectedTab = SchemePageTabs.Questions }, new { @class = "btn btn-success" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Question Details - @Model.Name</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="row">
+                @Html.LabelFor(model => model.Code, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-6">
+                    <span class="form-label">@Model.Code</span>
+                </div>
+            </div>
+
+            <div class="row">
+                @Html.LabelFor(model => model.Name, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-6">
+                    <span class="form-label">@Model.Name</span>
+                </div>
+            </div>
+
+            <div class="row">
+                @Html.LabelFor(model => model.QuestionTemplate, new { @class = "control-label col-sm-4" })
+                <div class="col-sm-6">
+                    <span class="form-label">@Model.QuestionTemplate</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

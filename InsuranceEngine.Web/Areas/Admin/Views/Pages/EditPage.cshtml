@@ -1,0 +1,86 @@
+﻿@model InsuranceEngine.DTO.Questionnaire.PageDTO
+
+@{
+    ViewBag.Title = "AddPage";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.SchemeID)
+    @Html.HiddenFor(model => model.PageID)
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit Page - @Model.Title</h3>
+        </div>
+        <div class="panel-body">
+
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <strong>Please correct the following</strong>;
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PageTemplateID, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.DropDownListFor(model => model.PageTemplateID, ViewBag.PageTemplates as IEnumerable<SelectListItem>, "select one", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PageTemplateID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Title, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Name, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DisplayOrder, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DisplayOrder)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.NextPageID, new { @class = "control-label col-sm-4" })
+                    <div class="col-sm-6">
+                        @Html.DropDownListFor(model => model.NextPageID, ViewBag.Pages as IEnumerable<SelectListItem>, "select one", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.NextPageID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.ActionLink("Cancel", "ViewPage", null, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

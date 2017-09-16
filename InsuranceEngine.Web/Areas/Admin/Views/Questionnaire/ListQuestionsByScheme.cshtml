@@ -1,0 +1,33 @@
+﻿@model InsuranceEngine.Web.Areas.Admin.Models.SchemeQuestionsVM
+
+@(
+ Html.Kendo().Grid(Model.Questions)
+                            .Name("QuestionsGrid")
+                            .Columns(columns =>
+                            {
+                                columns.Bound(p => p.Name).Title("Name").Width("30%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.Code).Title("Code").Width("30%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Bound(p => p.QuestionTemplate).Title("Question Template").Width("25%").Filterable(ftb => ftb.Cell(cell => cell.Operator("contains")));
+                                columns.Template(p => p.QuestionID).Title("").Width("15%")
+                                    .ClientTemplate(
+                                    "<a href='" + @Url.Content("~") + "Admin/Questionnaire/ViewQuestion/" + @Model.SchemeID + "/#=QuestionID#'>View</a> | " +
+                                    "<a href='" + @Url.Content("~") + "Admin/Questionnaire/EditQuestion/" + @Model.SchemeID + "/#=QuestionID#'>Edit</a> | " +
+                                    "<a href='/Admin/Questionnaire/DeleteQuestion/" + @Model.SchemeID + "/#=QuestionID#'>Delete</a>"
+                                    );
+                            })
+                            .Pageable()
+                            .Sortable()
+                            .Scrollable(s => s.Height("50%"))
+                            .Filterable(filter =>
+                                {
+                                    filter.Mode(GridFilterMode.Row);
+                                }
+                            )
+                            .DataSource(dataSource => dataSource
+                                .Ajax()
+                                .ServerOperation(true)
+                                .PageSize(10)
+                                .Read(read => read.Action("GetQuestionsByScheme", "Questionnaire", new { Area = "Admin", schemeId = @Model.SchemeID }))
+                            )
+        //.Events(events => events.DataBound("GridBound"))
+)

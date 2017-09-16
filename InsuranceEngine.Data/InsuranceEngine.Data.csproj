@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{14AE88C4-1DCB-4F20-8FD8-664391C0B7E0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>InsuranceEngine.Data</RootNamespace>
+    <AssemblyName>InsuranceEngine.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4">
+      <HintPath>..\packages\AutoMapper.3.2.1\lib\net40\AutoMapper.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic">
+      <HintPath>bin\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataManagers\DataManagerBase.cs" />
+    <Compile Include="DataManagers\Questionnaire\QuestionnaireAdminDataManager.cs" />
+    <Compile Include="DataManagers\Questionnaire\QuestionnaireCacheManager.cs" />
+    <Compile Include="DataManagers\Questionnaire\QuestionnaireDataManager.cs" />
+    <Compile Include="EF\Questionnaire\Page.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\PageQuestions_ListPageQuestionDisplayConditionsForGrid_Result.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\PageQuestions_ListPageQuestionsForGrid_Result.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\PageQuestions_ListPageQuestionValidationForGrid_Result.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Pages_ListPagesForGrid_Result.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Page_Question.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Page_Question_Conditional_Display.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Page_Question_Validation.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Page_Template.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Question.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Questionnaire.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Questionnaire.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Questionnaire.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Questionnaire.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Questionnaire.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Questions_ListPossibleAnswerForGrid_Result.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Questions_ListQuestionsForGrid_Result.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Question_Possible_Answer.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Question_Template.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Question_Type.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Quote.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Quote_Question_Answer.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\RenderedPages_ListRenderedPagesForGrid_Result.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Rendered_Page.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Scheme.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF\Questionnaire\Validation_Type.cs">
+      <DependentUpon>Questionnaire.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Mapping\Mapper.cs" />
+    <Compile Include="Mapping\Mappings\QuestionnaireMappings.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <EntityDeploy Include="EF\Questionnaire\Questionnaire.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Questionnaire.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF\Questionnaire\Questionnaire.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Questionnaire.edmx</DependentUpon>
+      <LastGenOutput>Questionnaire.Context.cs</LastGenOutput>
+    </None>
+    <None Include="EF\Questionnaire\Questionnaire.edmx.diagram">
+      <DependentUpon>Questionnaire.edmx</DependentUpon>
+    </None>
+    <None Include="EF\Questionnaire\Questionnaire.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Questionnaire.edmx</DependentUpon>
+      <LastGenOutput>Questionnaire.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InsuranceEngine.Caching\InsuranceEngine.Caching.csproj">
+      <Project>{9e3708d4-1d13-43e4-8541-a06c7fe9f854}</Project>
+      <Name>InsuranceEngine.Caching</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\InsuranceEngine.DTO\InsuranceEngine.DTO.csproj">
+      <Project>{a646f983-9741-4d1b-9826-bafb618b1135}</Project>
+      <Name>InsuranceEngine.DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.2.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

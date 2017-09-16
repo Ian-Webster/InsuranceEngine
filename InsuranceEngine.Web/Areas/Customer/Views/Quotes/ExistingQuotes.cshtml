@@ -1,0 +1,91 @@
+﻿@model InsuranceEngine.Web.Areas.Customer.Models.Quotes.ExistingQuotesVM
+
+@{
+    ViewBag.Title = "Existing Quotes";
+    Layout = "~/Areas/Customer/Views/Shared/_LayoutWithMenu.cshtml";
+}
+@using (Html.BeginForm())
+{
+    <div class="row">
+
+        @if (!Html.ViewData.ModelState.IsValid)
+        {
+            <div class="alert alert-danger">
+                <strong>Please correct the following</strong>;
+                @Html.ValidationSummary()
+            </div>
+        }
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">New Quote</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="control-label col-sm-4 required">Select a Scheme</label>
+                        <div class="col-sm-6">
+                            @Html.DropDownListFor(m => m.SelectedSchemeID, ViewBag.Schemes as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4">
+                            &nbsp;
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="submit" class="btn btn-primary" value="New Quote" />
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Existing Quotes</h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped table-hover">
+                    <tr>
+                        <th>
+                            Reference
+                        </th>
+                        <th>
+                            Scheme Code
+                        </th>
+                        <th>
+                            Quote Date
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model.Quotes)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Reference)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SchemeCode)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.QuoteDate)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Open Quote", "OpenQuote", new { quoteId = item.QuoteID })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+}

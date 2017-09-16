@@ -1,0 +1,86 @@
+﻿@model InsuranceEngine.DTO.Questionnaire.PageQuestionDTO
+@using InsuranceEngine.DTO.Utility.Enums.AdminUIEnums
+@{
+    ViewBag.Title = "AddPageQuestion";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutWithMenu.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    @Html.HiddenFor(model => model.PageQuestionID)
+    @Html.HiddenFor(model => model.PageID)
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Add Page Question</h3>
+        </div>
+        <div class="panel-body">
+
+            @if (!Html.ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    <strong>Please correct the following</strong>;
+                    @Html.ValidationSummary()
+                </div>
+            }
+
+            <div class="form-horizontal">
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QuestionID, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.DropDownListFor(model => model.QuestionID, ViewBag.Pages as IEnumerable<SelectListItem>, "select one", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.QuestionID)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DisplayOrder, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.DisplayOrder, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DisplayOrder)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QuestionText, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.QuestionText, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.QuestionText)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.QuestionName, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.QuestionName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.QuestionName)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DefaultShow, new { @class = "control-label col-sm-4 required" })
+                    <div class="col-sm-6">
+                        @Html.EditorFor(model => model.DefaultShow, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.DefaultShow)
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-4">
+                        &nbsp;
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                    <div class="col-sm-1">
+                        @Html.ActionLink("Cancel", "ViewPage", new { pageId = @Model.PageID, selectedTab = PageTabs.PageQuestions }, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
